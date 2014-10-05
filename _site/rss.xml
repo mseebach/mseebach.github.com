@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Martin Seebach</title>
+        <description>Martin Seebach - Martin Seebach</description>
+        <link>https://ma.rtinseeba.ch</link>
+        <link>https://ma.rtinseeba.ch</link>
+        <lastBuildDate>2013-10-07T11:40:49+00:00</lastBuildDate>
+        <pubDate>2013-10-07T11:40:49+00:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>About that audition project</title>
+                <description>&lt;p&gt;The idea of an audition project comes up frequently in recommendations about hiring and interviewing, most recently in HackerEarth&amp;#8217;s &lt;a href='http://recruiterguide.hackerearth.com/technical-interviews-whats-beyond-the-fizzbuzz-challenge/'&gt;Technical Interviews: What’s beyond the Fizzbuzz challenge&lt;/a&gt;. I find points 1-4 solid and insightful advice, but point 5 &amp;#8211; the audition project &amp;#8211; irks me.&lt;/p&gt;
+
+&lt;p&gt;After clearing the hurdles of the interview itself, the candidate is to be given a small &lt;em&gt;real&lt;/em&gt; project to be completed in about a week or so. On the face of it, the idea has a lot going for it: Nobody disagrees that there are no better ways of evaluation a person&amp;#8217;s skill than their actual performance on solving a real, relevant problem with the team. But I am rather bearish on the idea:&lt;/p&gt;
+
+&lt;p&gt;First, I plainly don&amp;#8217;t think it&amp;#8217;s fair to request of a candidate to invest a whole week into a single application. If they are out of a job, it&amp;#8217;s easier to achieve, but if the person you are hiring already has a job or is finishing up university, it gets tricky. Most people in good jobs can probably take a week of vacation on short notice, what if the offer doesn&amp;#8217;t come through? Then another, and another? You&amp;#8217;re putting yourself in an increasingly exposed position, and keeping your interviewing secret from your current employer gets all but impossible. Also, I don&amp;#8217;t think it&amp;#8217;s unreasonable to interview to the final stage at two or more potential jobs before making a call. This practise will make that all but impossible to achieve.&lt;/p&gt;
+
+&lt;p&gt;Second, few teams have a cache of such problems.&lt;/p&gt;
+
+&lt;p&gt;The problem must be well defined and documented and as good as free of proprietary dependencies - if we are to get good signal from just a week&amp;#8217;s effort, it can&amp;#8217;t be spent on getting to know the intricacies of your existing codebase or understanding the problem to begin with.&lt;/p&gt;
+
+&lt;p&gt;I mean &amp;#8216;proprietary&amp;#8217; very broadly, not just that very-closed-source homebaked collection of libraries and middleware that has grown organically for the past five years that you know you should get rid off anyway. I mean basically anything that assumes business or product knowledge beyond what a candidate can reasonably be expected to learn from your website. Unless your team is working on a quite popular open source project, that means pretty much all your code.&lt;/p&gt;
+
+&lt;p&gt;One of the reasons outsourcing is so difficult is that shared context is key to effective communication and understanding. The exact same constraint applies here.&lt;/p&gt;
+
+&lt;p&gt;Maybe I&amp;#8217;m not thinking hard enough, but I struggle to think of even a few tasks that fit this bill from my last three jobs.&lt;/p&gt;
+
+&lt;p&gt;Finally, the real killer is the simple fact that the team needs to work with this person to evaluate them, and so the team needs to invest time, effort and emotion into getting to know this person, and suffer the morale impact of making the no-hire decision &amp;#8211; to fire the person. After all, as a part of your hiring process, you&amp;#8217;d want signal from it: A substantial portion of the candidates should fail at this stage.&lt;/p&gt;
+
+&lt;p&gt;We need to make the interview process better, but the audition project is not it.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Discussion welcome at &lt;a href='https://news.ycombinator.com/item?id=6492921'&gt;Hacker News&lt;/a&gt;&lt;/p&gt;</description>
+                <link>https://ma.rtinseeba.ch/about-that-audition-project</link>
+                <guid>https://ma.rtinseeba.ch/about-that-audition-project</guid>
+                <pubDate>2013-10-03T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
+                <title>JAXB isn't half bad</title>
+                <description>&lt;p&gt;This week I had to implement a small Java program that would provide a UI to manipulate an XML file. My heart sank a bit at the promise of a trip to the Java/XML enterprise heartland.&lt;/p&gt;
+
+&lt;p&gt;My original plan was to just implement a minimal, viable subset of the XML as a proof of concept &amp;#8211; and since this is, it self, for a proof of concept, I might well have gotten away with it. But still, anything that worth doing is worth doing well, so I did some research (which is a nice way of saying that I dithered for a while, trying to make up my mind) and happened to notice that &lt;a href='https://jaxb.java.net/tutorial/section_1_3-Hello-World.html'&gt;JAXB&lt;/a&gt; was already on the classpath of the project.&lt;/p&gt;
+
+&lt;p&gt;JAXB &amp;#8211; Java Architecture for XML Binding &amp;#8211; works by taking a XSD schema and generating bindings for it. I recalled the similar approach used in JAX-WS and cringed, but resolved to give it a shot. I have some previous experience building XSDs and find it a reasonably sane and helpful exercise: it forces you to consider your XML format separately. It has some counter-intuitive constraints (an element can&amp;#8217;t contain a mix of element types and children in any order, they must come in a certain order) but nothing too outrageous.&lt;/p&gt;
+
+&lt;p&gt;Having build the XSD, I fed it to the &amp;#8216;xjc&amp;#8217; command line util, helpfully included in the JDK, and got a nicely generated set of classes with binding to my XML format. The link above is to a &amp;#8220;Hello World&amp;#8221; sample, and I don&amp;#8217;t think I can improve much on that &amp;#8211; thus, no sample code in this post.&lt;/p&gt;
+
+&lt;p&gt;It worked almost as expected &amp;#8211; after battling a bit with the interface to the JAXB unmarshaller, I discovered that about half the problems I was facing was due to my XSD not defining a root element. This has the effect of declaring a universe in which the element can exist, not telling JAXB explicitly to expect a certain element in my XML file.&lt;/p&gt;
+
+&lt;p&gt;With that fixed, I had a nice and clean typesafe interface to my XML format that turned out to work exactly as expected. Dynamic languages have a lot going for them in this domain, but I really like that I have autocompletion directly into my XML format and if I change the format, I can re-generate the bindings and get a nice list of compiler errors to work from.&lt;/p&gt;</description>
+                <link>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</link>
+                <guid>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</guid>
+                <pubDate>2013-06-14T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
+                <title>Double considered harmful</title>
+                <description>&lt;p&gt;So, everybody who paid attention in college CS knows this. Heck, I didn’t always pay attention, and I knew it, but it still caught me by surprise when I hit my head on this issue in the real world.&lt;/p&gt;
+
+&lt;p&gt;Recapping the background: The double (as we know it in Java) is short for “double precision binary floating-point format”, and they are the floats more precise big brother. Floats and doubles are a trade-offs where precision is traded for the ability to store them in a fixed amount of space and to perform very fast arithmetic on them. Basically it’s two seperate numbers, called a significant and an exponent, and they are then subjected to some mathemagic to yield any of a very wide range of numbers.&amp;#160;&lt;/p&gt;
+
+&lt;p&gt;If you don’t need the floating point, which most people often don’t, you’re better off storing your numbers as fixed-point (e.g. the DECIMAL columntype in most databases). Unfortunately Java (and many other not-so-modern languages) doesn’t have such a type natively.&lt;/p&gt;
+
+&lt;p&gt;So doubles aren’t perfectly precise, we know that, but that’s only for large and weird numbers, right? No. For one, a double can’t be 1.2. You wouldn’t know that if you didn’t look for it, because when you print doubles, Java rounds them off for you. And rightly so, the error is exceedingly small: had this been 1.2 meters, the error would amount to a fraction of the size of an atom. Obviously, this is perfectly fine - right up until the point when it’s not.&lt;/p&gt;
+
+&lt;p&gt;Our application dabbles quite a bit in arbitrary precision. We (among other things) deal in sequences of daily return ratios and foreign exchange - numbers that are notoriously unwilling to just be nice and round. By the time we get around to adding up your daily FX-adjusted returns for the past year, the error on a simple double-value starts to add up to real money, so we implement these numbers as BigDecimals (specifically our own wrapper for it that adds some useful fuctionality, including the ability to do fractions).&lt;/p&gt;
+
+&lt;p&gt;This is all very well - until someone decides to stick something like 1.2 into BigDecimal. Recalling how printing 1.2 is fine, you’d be excused in assuming that using the double-constructor of BigDecimal is fine. But no, and with potentially disastrous consequences.&lt;/p&gt;
+
+&lt;p&gt;Consider this simple method:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt; 
+&lt;span class='kd'&gt;public&lt;/span&gt; &lt;span class='n'&gt;BigDecimal&lt;/span&gt; &lt;span class='nf'&gt;iterate_multiplication&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;
+                                   &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;iterations&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt;
+                                   &lt;span class='n'&gt;BigDecimal&lt;/span&gt; &lt;span class='n'&gt;multiplicand&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
+        &lt;span class='n'&gt;BigDecimal&lt;/span&gt; &lt;span class='n'&gt;bd_out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;BigDecimal&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;ONE&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+        &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;=&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;&amp;lt;&lt;/span&gt;&lt;span class='n'&gt;iterations&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt; &lt;span class='n'&gt;i&lt;/span&gt;&lt;span class='o'&gt;++)&lt;/span&gt; 
+                  &lt;span class='n'&gt;bd_out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;bd_out&lt;/span&gt;
+                           &lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;add&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;BigDecimal&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;ONE&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt;
+                           &lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;multiply&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;multiplicand&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+        &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;bd_out&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;
+    &lt;span class='o'&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And these two invocations – on the surface they are equivalent:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt; 
+&lt;span class='n'&gt;iterate_multiplication&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1000&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;BigDecimal&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mf'&gt;1.2&lt;/span&gt;&lt;span class='o'&gt;));&lt;/span&gt;
+&lt;span class='n'&gt;iterate_multiplication&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;1000&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;BigDecimal&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;1.2&amp;quot;&lt;/span&gt;&lt;span class='o'&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;(BigDecimal will parse a decimal number from a string - IMHO the easiest way to get an exact value into a BigDecimal)&lt;/p&gt;
+
+&lt;p&gt;The latter invocation returns well over 1000 times faster. Three full orders of magnitude. 15 milliseconds in place of 20 seconds. This is because the former is called with an argument that, behind the scene, has 51 decimal places, which, obviously, is significantly more complicated to multiply.&lt;/p&gt;
+
+&lt;p&gt;The two methods returns rather different numbers, but that is due to iterating the multiplication, which amplifies the error of the double. Both numbers have 81 digits before the decimal point, and share the first 13. The really interesting - but at this point, hardly surprising - difference is after the decimal point: The former has 52,000 decimals, the latter just 1,000.&lt;/p&gt;
+
+&lt;p&gt;Even though fortune-cookie conclusions are often over-generalizing, I will venture into that territory: Don’t ever construct a BigDecimal with a double. It doesn’t do what you think it does.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Written for &amp;#38; posted on &lt;a href='https://devblog.timgroup.com/2010/10/18/double_considered_harmful/'&gt;the TIM Group blog&lt;/a&gt;.&lt;/p&gt;</description>
+                <link>https://ma.rtinseeba.ch/double-considered-harmful</link>
+                <guid>https://ma.rtinseeba.ch/double-considered-harmful</guid>
+                <pubDate>2010-10-18T00:00:00+00:00</pubDate>
+        </item>
+
+        <item>
+                <title>Beautiful doesn't make it true</title>
+                <description>&lt;p&gt;Yesterday, &lt;a href='http://twitter.com/christianevejlo'&gt;@christianevejlo&lt;/a&gt; tweeted interest in whether volcano-grounded planes were &lt;a href='http://twitter.com/christianevejlo/status/12346732175'&gt;a net benefit for the environment&lt;/a&gt;. Retweeting an answer, &lt;a href='http://twitter.com/christianevejlo/status/12355468953'&gt;she referenced&lt;/a&gt; &lt;em&gt;Information is Beautiful&lt;/em&gt;’s post &lt;a href='http://www.informationisbeautiful.net/2010/planes-or-volcano/'&gt;“Planes or Volcano”&lt;/a&gt;, an indeed aesthetically pleasing illustration of the CO2 emissions of the European aviation industry next to that of the Icelandic volcano. I replied that &lt;a href='http://twitter.com/mseebach/status/12356337232' title='&amp;quot;Information is beautiful seems to be more about beautiful than about information..'&gt;“Information is beautiful seems to be more about beautiful than about information..”&lt;/a&gt;. She asked me to elaborate, and here goes..&lt;/p&gt;
+
+&lt;p&gt;Infographics seems to have had a renaissance recently. There is a lot of information out there, and visualizing it in various ways helps convey this information to a much larger audience. This is a good thing. &lt;em&gt;&lt;a href='http://www.informationisbeautiful.net/'&gt;Information is Beautiful&lt;/a&gt;&lt;/em&gt; is part of this, and they have some &lt;a href='http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/'&gt;truly&lt;/a&gt; &lt;a href='http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/'&gt;stunning&lt;/a&gt; &lt;a href='http://www.informationisbeautiful.net/2010/four-infographical-morsels-no-5/'&gt;work&lt;/a&gt;. However, in this case, what was conveyed wasn’t data. It was the point that commercial aviation is evil bad for the environment. The way I can tell is the way they casually observe that Eyjafjallajökull belches out 3000 tons of Sulphur Dioxide (SO2) daily, while they have no interest in this beyond using it as a stepping stone to estimate the amount of Carbon Dioxide (CO2) emitted.&lt;/p&gt;
+
+&lt;p&gt;CO2 is a greenhouse gas that may very well have some very negative effects, but they lay decades in the future.&lt;/p&gt;
+
+&lt;p&gt;SO2 is what causes acid rain.&lt;/p&gt;
+
+&lt;p&gt;Planes emit CO2 - but they emit almost completely clean CO2 (note that bar global warming, CO2 isn’t considered harmful). Volcanoes blast tons and tons of all kinds of nasty and not so nasty stuff into the air. Some of the ash contains nutrients that will fertilize soil, other will, as mentioned, cause acid rain. It’s much more complex than CO2.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Information is Beautiful&lt;/em&gt; could have chosen to diagram the amount of SO2 emitted by aviation (next to nothing) next to the amount emitted by the volcano (a lot), but they didn’t &amp;#8212; and that’s OK, because it wouldn’t make sense.&lt;/p&gt;
+
+&lt;p&gt;The point is that a volcano compared to commercial aviation is apples to oranges. No matter how beautiful the infographics, it’s comparison in itself is pointless.&lt;/p&gt;
+
+&lt;p&gt;Now, the general statement that &lt;em&gt;Information is Beautiful&lt;/em&gt; is more about beautiful stems from their previous post &amp;#8212; “&lt;a href='http://www.informationisbeautiful.net/2010/how-much-do-music-artists-earn-online/'&gt;How much do music artists earn online?&lt;/a&gt;”. Looking at this, again, very good looking illustration, it’s easy to scroll down and say “boo, evil Spotify”. But until you look at the numbers (which, in infographics, is sort-of the point &lt;em&gt;not&lt;/em&gt; to), you don’t realize that it compares apples to oranges.&lt;/p&gt;
+
+&lt;p&gt;They equate selling &lt;em&gt;one physical CD&lt;/em&gt; with selling &lt;em&gt;one album download&lt;/em&gt; with selling &lt;em&gt;one track download&lt;/em&gt; with &lt;em&gt;getting one play&lt;/em&gt; on a service like Spotify. Or the short version: for this graphic to convey an honest version of the truth, you have to accept the premise that &lt;em&gt;selling a physical CD and getting a play on Spotify is the same&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, one album download should equate ten, not one, track downloads. And getting a play should acknowledge that a play has zero marginal cost to the user, and that the user may choose to play a track many times. Once you’ve purchased and downloaded a track, you’ve got unlimited plays, forever.&lt;/p&gt;
+
+&lt;p&gt;If you accept ten tracks to an album, and ten plays pr. track, the three bottom circles should be 100 times smaller (and the circles relating to single track downloads, 10 times smaller). That would make Rhapsody only twice the low-end retail deal. Considering that Rhapsody, last.fm and Spotify are widely available to artists, and retail deals aren’t, that’s not bad at all. Spotify is still on the cheap end, but only 11 times the low-end retail deal. Considering the enormous long-tail opportunities that the Spotify-like services provide (would you buy, say, Rick Astley’s “Never gonna let you down”? Probably not. Would you play it on Spotify at a party once or twice? That’s more likely), the number 11 shrinks even more.&lt;/p&gt;
+
+&lt;p&gt;And what is probably the worst offense: why doesn’t it compare a Spotify play with a radio-play? These services are essentially single-listener-market radio stations.&lt;/p&gt;
+
+&lt;p&gt;Again, the agenda is clear. It’s not about the data, it’s about calling Spotify evil. The data &lt;em&gt;may&lt;/em&gt; support that conclusion. The graphics doesn’t.&lt;/p&gt;
+
+&lt;p&gt;Finally, if you want more, please take a look at the &lt;a href='http://informationisbeautiful.bigcartel.com/'&gt;limited edition posters being sold in the right-hand column&lt;/a&gt;. Nominally, it’s an illustration comparing the political left with the political right. Read closer. The right is said to be “exclusive”, the left “inclusive”. The left-wing parent is “nurturing” and has a relationship with her child that is build on “respect and trust”, while the right-wing parent is “strict” (as opposed to nurturing) and the relationship is build on “respect and fear”. “Survival of the fittest” is repeated twice on the right side, the left has “One for all and all for one”.&lt;/p&gt;
+
+&lt;p&gt;I have no doubt that this is how the urban, american left views itself, I know I’m probably guilty of similar prejudices the other way around. But if it’s an infographic, it’s about american left-wing prejudices, not about political philosophies.&lt;/p&gt;
+
+&lt;p&gt;In conclusion: Information is Beautiful makes beautiful things. For information, they are little better than any political blog.&lt;/p&gt;</description>
+                <link>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</link>
+                <guid>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</guid>
+                <pubDate>2010-04-18T00:00:00+00:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>

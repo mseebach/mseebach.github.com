@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Double considered harmful</title>
+    
+    <meta name="author" content="Martin Seebach">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/pygments.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Martin Seebach</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Double considered harmful </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>18 October 2010</span>
+    </div>
+    <div class="content">
+      <p>So, everybody who paid attention in college CS knows this. Heck, I didn’t always pay attention, and I knew it, but it still caught me by surprise when I hit my head on this issue in the real world.</p>
+
+<p>Recapping the background: The double (as we know it in Java) is short for “double precision binary floating-point format”, and they are the floats more precise big brother. Floats and doubles are a trade-offs where precision is traded for the ability to store them in a fixed amount of space and to perform very fast arithmetic on them. Basically it’s two seperate numbers, called a significant and an exponent, and they are then subjected to some mathemagic to yield any of a very wide range of numbers.&#160;</p>
+
+<p>If you don’t need the floating point, which most people often don’t, you’re better off storing your numbers as fixed-point (e.g. the DECIMAL columntype in most databases). Unfortunately Java (and many other not-so-modern languages) doesn’t have such a type natively.</p>
+
+<p>So doubles aren’t perfectly precise, we know that, but that’s only for large and weird numbers, right? No. For one, a double can’t be 1.2. You wouldn’t know that if you didn’t look for it, because when you print doubles, Java rounds them off for you. And rightly so, the error is exceedingly small: had this been 1.2 meters, the error would amount to a fraction of the size of an atom. Obviously, this is perfectly fine - right up until the point when it’s not.</p>
+
+<p>Our application dabbles quite a bit in arbitrary precision. We (among other things) deal in sequences of daily return ratios and foreign exchange - numbers that are notoriously unwilling to just be nice and round. By the time we get around to adding up your daily FX-adjusted returns for the past year, the error on a simple double-value starts to add up to real money, so we implement these numbers as BigDecimals (specifically our own wrapper for it that adds some useful fuctionality, including the ability to do fractions).</p>
+
+<p>This is all very well - until someone decides to stick something like 1.2 into BigDecimal. Recalling how printing 1.2 is fine, you’d be excused in assuming that using the double-constructor of BigDecimal is fine. But no, and with potentially disastrous consequences.</p>
+
+<p>Consider this simple method:</p>
+<div class='highlight'><pre><code class='java'> 
+<span class='kd'>public</span> <span class='n'>BigDecimal</span> <span class='nf'>iterate_multiplication</span><span class='o'>(</span>
+                                   <span class='kt'>int</span> <span class='n'>iterations</span><span class='o'>,</span>
+                                   <span class='n'>BigDecimal</span> <span class='n'>multiplicand</span><span class='o'>)</span> <span class='o'>{</span>
+        <span class='n'>BigDecimal</span> <span class='n'>bd_out</span> <span class='o'>=</span> <span class='n'>BigDecimal</span><span class='o'>.</span><span class='na'>ONE</span><span class='o'>;</span>
+        <span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span><span class='o'>=</span><span class='mi'>0</span><span class='o'>;</span> <span class='n'>i</span><span class='o'>&lt;</span><span class='n'>iterations</span><span class='o'>;</span> <span class='n'>i</span><span class='o'>++)</span> 
+                  <span class='n'>bd_out</span> <span class='o'>=</span> <span class='n'>bd_out</span>
+                           <span class='o'>.</span><span class='na'>add</span><span class='o'>(</span><span class='n'>BigDecimal</span><span class='o'>.</span><span class='na'>ONE</span><span class='o'>)</span>
+                           <span class='o'>.</span><span class='na'>multiply</span><span class='o'>(</span><span class='n'>multiplicand</span><span class='o'>);</span>
+        <span class='k'>return</span> <span class='n'>bd_out</span><span class='o'>;</span>
+    <span class='o'>}</span>
+</code></pre></div>
+<p>And these two invocations – on the surface they are equivalent:</p>
+<div class='highlight'><pre><code class='java'> 
+<span class='n'>iterate_multiplication</span><span class='o'>(</span><span class='mi'>1000</span><span class='o'>,</span> <span class='k'>new</span> <span class='n'>BigDecimal</span><span class='o'>(</span><span class='mf'>1.2</span><span class='o'>));</span>
+<span class='n'>iterate_multiplication</span><span class='o'>(</span><span class='mi'>1000</span><span class='o'>,</span> <span class='k'>new</span> <span class='n'>BigDecimal</span><span class='o'>(</span><span class='s'>&quot;1.2&quot;</span><span class='o'>));</span>
+</code></pre></div>
+<p>(BigDecimal will parse a decimal number from a string - IMHO the easiest way to get an exact value into a BigDecimal)</p>
+
+<p>The latter invocation returns well over 1000 times faster. Three full orders of magnitude. 15 milliseconds in place of 20 seconds. This is because the former is called with an argument that, behind the scene, has 51 decimal places, which, obviously, is significantly more complicated to multiply.</p>
+
+<p>The two methods returns rather different numbers, but that is due to iterating the multiplication, which amplifies the error of the double. Both numbers have 81 digits before the decimal point, and share the first 13. The really interesting - but at this point, hardly surprising - difference is after the decimal point: The former has 52,000 decimals, the latter just 1,000.</p>
+
+<p>Even though fortune-cookie conclusions are often over-generalizing, I will venture into that territory: Don’t ever construct a BigDecimal with a double. It doesn’t do what you think it does.</p>
+<hr />
+<p>Written for &#38; posted on <a href='https://devblog.timgroup.com/2010/10/18/double_considered_harmful/'>the TIM Group blog</a>.</p>
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/beautiful-doesnt-make-it-true" title="Beautiful doesn't make it true">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/jaxb-isnt-half-bad" title="JAXB isn't half bad">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2013 Martin Seebach
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+    <!-- analytics -->
+    
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44596784-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+  </body>
+</html>
+
