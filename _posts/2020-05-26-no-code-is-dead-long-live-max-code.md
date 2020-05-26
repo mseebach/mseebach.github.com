@@ -124,3 +124,5 @@ success of coding boot camps suggests this is an eminently viable path.
 
 Instead of hiding from the complex reality, we must embrace it and
 unlock the amazing power of computing for all.
+
+[Discuss on Twitter](https://twitter.com/mseebach/status/1265366229390430210)
