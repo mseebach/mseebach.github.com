@@ -1,0 +1,53 @@
+Jeg har gået og tygget lidt på en idé, inspireret af ham på econtalk sidste år som talte om atomer, at verden simpelthen bruger færre atomer. Hvad nu hvis vi lige pt gennemlever "anti-atom-revolutionen" og det faktisk er vanvittigt vigtigt, men vi ikke kan se det fordi vores mentale model for fremskridtet er atomer? Den flyvende bil er the shit, men det er lige meget at jeg kan skrive 140 bogstaver og hele verden kan læse dem sekundet efter?
+Hvad er den objektive fremskridtsmåleenhed efter hvilken Twitter er fjolleri men flyvende biler er lykken?
+Hvorfor er månelandingen civilisations højdepunkt og Zoom trivielt legetøj?
+Zoom er kulminationen på 30 års udbygning af internettet og udvikling af personlige computere, som kan bruges til tusindvis af ting, hvor Zoom isoleret er en relativt triviel applikation. Månelandingen var en kulmination af vel ca 20 års målrettet arbejde, hvor store dele alene supporterede dét enkelte mål, og mere eller mindre fordampede bagefter -- hvilket leder til den kyniske observation i dag at vi ikke kunne komme til månen nu fordi vi har glemt/aflært store dele af den viden som blev opbygget den gang.
+
+Månelandingen og flyvende biler lander i et eller andet sweetspot hvor almindelige mennesker kan se og føle at det er stort, og at der er gået enorme mængder arbejde til det. De samme kan ikke fatte hvor ubegribelig Zoom ville være i 80'erne. Ikke bare telefon med billede, men gruppesamtaler, mobil og verdensomspændende -- og gratis. Og de kan ikke se det enorme arbejde der ligger bag det. Måske fordi det kan bruges til så meget at det føles som "baggrundsstøj"?
+
+Hoved/motorveje er karismatiske, symboler på frihed. Kerouac. Internettet er usynligt.
+
+
+---
+layout: post
+title: The Industrial Contra-Revolution
+---
+
+> We wanted flying cars, instead we got 140 characters
+
+The Peter Thiel quite has become somewhat of a mantra for the
+stagnation-??. Certainly, it captures an understandable frustration
+with the slowing, and sometimes reversal, of progress in many areas:
+"cost disease" in civil engineering, health care, education and many
+other sectors is well documented. Why is it so expensive and slow? Why
+isn't it better, considering the cost?
+
+On the other hand, cars, compared to the "cost disease" sectors, have fared better. An average modern car is unequivocally better, safer, more comfortable, more reliable and -- not least -- way more efficient than the average car of any previous era. Especially considering these improvements, it's certainly not more expensive. Legitimate points about aesthetics can be made, but let's leave those aside. But a car build in 2020 would be immediately recognisable to a driver from the 1950s. Adaptive cruise control, lane assist and satellite navigation would be genuinely awesome but trivially understood as incremental improvements. It can't fly, not literally, nor metaphorically.
+
+My first mobile phone plan in London had small-print that prohibited the use of IM applications over the data connection. The phone company wanted me to use (chargeable) SMS. To be fair, the clause wasn't enforced, but it was there. In 2010. Not long before that, phone calls, especially long-distance, were not only chargeable but various degrees of expensive. The big UK mobile phone plans still routinely charge £1/minute for overseas calls, and by that they mean France -- not the Marshall Islands. Jobs and Woz met in the 1970s over their mutual interest in "hacking" -- which meant tricking phone companies into connecting long-distance calls without charging.
+
+The car would be recognisable to the 1950s visitor, but the fact that I can pull a small slab of glass out of my pocket and cause a fragment of text to be instantly available to billions of people across the globe a fraction of a second later, practically free of charge, would be indistinguishable from magic. Yet, we tend to dismiss the latter as slightly frivolous. Why?
+
+We can consider these developments as belonging to two different paradigms. The car and the moon landing, and most things we lament the stagnation of, belong to Industry. The PC, the smartphone, and the internet, the communication network that enables the internet and the businesses and applications it, in turn, enables belong to Information Technology. These are entirely different paradigms, and while there would be no IT with Industry, the two have long ago become entirely separate. The industry paradigm is concerned with physical things and the force required to move them around -- in physics, "work" is defined as using force to displace a mass. 
+
+It is telling that we reach for the moon landing, for flying cars or fast aeroplanes when describing stagnation. The triumphs of industry are those that enable more force, to displace heavier masses further. 
+
+The IT paradigm ... isn't that. IT is the anti-industry. IT is about not doing "work", in the physics definition. Indeed, dismissing desk-work, invariably involving a computer, as "not real work" is commonplace. The IT paradigm doesn't care about landing on the moon, it already sent six robots to Mars. The IT paradigm doesn't care about reviving Concorde, it can connect a video conference call with participants from around the globe (and ISS, for good measure) in seconds. IT is what allowed some parts of the economy to work and even expand through the coronavirus pandemic, while the physical world was severely restricted -- precisely because it transcends the physical world.
+
+This isn't about IT being good or bad; or better or worse than Industry. The ideas here are analogous to the argument that stagnation is GDP growth is due to mismeasurement, as the free Zoom call doesn't show up in GDP, and even decreases it if it displaces a chargeable long-distance call or a plane ticket. No number of Zoom calls or the cheapest laptop in the world can make up for having inadequate housing or healthcare.
+
+But neither would a flying car: So how do we decide that flying cars would be better than Twitter? We can't just assert it to be the case. The two paradigms are fundamentally different, even orthogonal to each other, and resist direct comparison. There is no axis along which it's meaningful to argue that flying cars would be better than Twitter -- or indeed, the opposite.
+
+The reason we do it is aesthetic. Railroads are generally not a great answer to a lot of issues, yet they are vigorously pursued in many countries. There's been an argument that this is because of the symbolism trains embody: High-Victorian industrial optimism. In the same vein, the moon landing was a highly visibly project, undertaken with purpose. Projects Mercury, Gemini and Apollo ran over little more than ten years and required an enormous amount of work -- very visible work. 
+
+On the other hand, the internet as it exists today is the culmination of more than four decades of work. The brilliance of the people involved are no less than those in the space program: the scientists inventing the internet, the PC, the relentless refinement of microprocessor fabrication, the communications engineers laying a staggeringly dense network of fibre in the ground and the ocean, and complementing it with a wireless mobile network, and the computer scientists developing operating systems and development environments. But it largely happened and is happening, in shadow and in silence. So when Twitter shows up, the hard lifting is done, and the feat of launching an app is comparatively trivial: This is relevant when we decide if the founders of Twitter are comparable to the leaders of the space program -- but it's immaterial with comparing 140 characters with a flying car in the perspective of progress.
+
+> In the department of economy, an act, a habit, an institution, a law, gives birth not only to an effect, but to a series of effects. Of these effects, the first only is immediate; it manifests itself simultaneously with its cause — it is seen. The others unfold in succession — they are not seen: it is well for us, if they are foreseen.
+> That Which is Seen, and That Which is Not Seen
+Frédéric Bastiat http://bastiat.org/en/twisatwins.html
+
+The issue is that Industry projects are seen, they are charismatic. Turner painted "Rain, Steam and Speed". Kerouac nailed the road trip firmly to the centre of the common imagination. The moon landing is still inspiring big-budget Hollywood productions five decades later. It's fair to say IT has not captured the public imagination in the same way. "You've got mail" (1998) was cringe-worthy when it was released, and has not gotten better with age, IT has just appeared in the backdrop with minimal fanfare. On the other hand, when it does take centre-stage it's in a dark and sinister role.
+
+> And was Jerusalem builded here,
+ Among these dark Satanic Mills?
+> - William Blake
