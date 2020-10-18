@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Converting legacy code | Martin Seebach</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Converting legacy code" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A question Sabine Hossenfelder asked on Twitter prompted this essay:" />
+<meta property="og:description" content="A question Sabine Hossenfelder asked on Twitter prompted this essay:" />
+<link rel="canonical" href="https://ma.rtinseeba.ch/converting-legacy-code" />
+<meta property="og:url" content="https://ma.rtinseeba.ch/converting-legacy-code" />
+<meta property="og:site_name" content="Martin Seebach" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"A question Sabine Hossenfelder asked on Twitter prompted this essay:","@type":"BlogPosting","headline":"Converting legacy code","dateModified":"2020-10-18T00:00:00-05:00","datePublished":"2020-10-18T00:00:00-05:00","url":"https://ma.rtinseeba.ch/converting-legacy-code","mainEntityOfPage":{"@type":"WebPage","@id":"https://ma.rtinseeba.ch/converting-legacy-code"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ma.rtinseeba.ch/feed.xml" title="Martin Seebach" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Martin Seebach</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Converting legacy code</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-10-18T00:00:00-05:00" itemprop="datePublished">Oct 18, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A question <a href="https://twitter.com/skdh">Sabine Hossenfelder</a> asked on
+Twitter prompted this essay:</p>
+
+<blockquote>
+  <p>If you had a ten million lines, decades-in-the-making fortran code,
+how’d you convert it to a modern language, how long would it take, and
+how much would it cost?
+<a href="https://twitter.com/skdh/status/1316570664103563265">↪</a></p>
+</blockquote>
+
+<p>There are no short or easy answers to this question. Inevitably, it
+depends on a lot of factors:</p>
+
+<p>We need a perfectly clear understanding of what the program is, what
+it’s used for, and by whom.</p>
+
+<p>We need to know what we’re trying to achieve by changing it. If this
+is not a clear and significant benefit, and not clearly articulated
+and shared by the project team and sponsors, the project will flounder
+and ultimately fail.</p>
+
+<p>We need to know if the program still works after we’ve changed it.
+This sounds basic, but is a surprisingly complex topic, especially for
+large, old systems.</p>
+
+<p>And finally we need to understand the organisational politics that
+will govern our project.</p>
+
+<p>Let’s try to unpack some of these questions.</p>
+
+<h3 id="domain">Domain</h3>
+<p>What is this thing even? 10 millions lines of code is a lot.</p>
+
+<p>Some systems are figuratively speaking responsible for everything from
+the moon landing to the cafeteria menu, an “everything but the kitchen
+sink” system. This is especially common in older systems, conceived at
+a time when the overhead of building and integrating new systems made
+just adding an extra feature to an existing system a very tantalising
+proposition, even when (modern) software architecture principles
+suggest it should be separate.</p>
+
+<blockquote>
+  <p>Some systems are figuratively speaking responsible for everything from 
+the moon landing to the cafeteria menu, an “everything but the kitchen 
+sink” system 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p>These systems are comparatively easy to reengineer, as we can often
+peel off these features in an iterative manner. Indeed, this will
+often have happened: We may find that the cafeteria menu module was
+last used in 2002 when that particular usage was migrated to another,
+new system.</p>
+
+<p>At the other end of this scale, we find the single, contained model,
+responsible for converting a tightly bounded set of inputs into a
+similarly tightly bounded set of outputs. It is easier to reason about
+a system like this, but the stakes are higher: This system likely
+exists because what it does is very important to someone powerful.</p>
+
+<h3 id="conversion-or-the-big-20-rewrite">Conversion? Or The Big 2.0 Rewrite</h3>
+<p>Why is it important to convert this program? Fortran works fine, so
+why not keep it in Fortran? Presumably, there are changes that need to
+be made, and it’s easier to find programmers in more modern languages.
+However, the hardest part of programming isn’t the language, it’s what
+we’re trying to do with it. Next to the challenge of understanding
+what those millions of lines are doing, learning Fortran will be a
+rounding error.</p>
+
+<blockquote>
+  <p>The hardest part of programming isn’t the language, it’s what we’re 
+trying to do with it. Next to the challenge of understanding what 
+those millions of lines are doing, learning Fortran will be a rounding 
+error 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p>One could imagine that one of the reasons it’s difficult to make
+changes to the existing codebase is that it’s poorly structured.
+Getting the structure just right is difficult for the best
+programmers, and especially under the pressure of deadlines and other
+constraints, shortcuts are often taken. These shortcuts are known as
+tech debt, which optimistically suggests the intention to pay it down
+in the future. In reality, this is often neglected. These decisions
+compound over the years, and in our case, the problem is quite likely
+to be exacerbated by the code being written by people who are academic
+domain specialists, not expert software engineers. Computers have a
+nasty habit of not caring how well engineered software is, only
+whether it runs, so “works” trumps “good”.</p>
+
+<blockquote>
+  <p>These shortcuts are known as tech debt, which optimistically suggests 
+the intention to pay it down in the future. In reality, this is often 
+neglected 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p>This mess, much more than the language, is why making changes to the
+codebase is so difficult. But untangling it will complicate any
+rewriting effort to an even larger degree.</p>
+
+<h3 id="things-you-should-never-do">Things you should never do</h3>
+<p>I would be remiss if I didn’t take the opportunity to link one of the
+seminal software engineering blogs here: <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">Joel on Software: Things You
+Should Never
+Do</a>.
+Spoiler alert: Exactly this.</p>
+
+<p>What we can do, however, is to progressively develop the program in a
+certain direction that allows us to achieve some of the same outcomes.
+A favourite text on this process is <a href="https://www.amazon.co.uk/Growing-Object-Oriented-Software-Guided-Signature/dp/0321503627/">Growing Object-Oriented Software,
+Guided by
+Tests</a>.
+Your Fortran program probably isn’t object oriented, but many of the
+principles still apply. The idea is to identify and carve out
+independent pieces of code, iteratively change and improve the code,
+continuously adding smaller and smaller tests as we work through it.
+This requires a “ground truth”, which we will return to.</p>
+
+<p>The reason we want to do this, as opposed to starting from a blank
+slate, is to enjoy the disciplining constraint of running our code
+against a realistic workload (ideally production, depending on the
+exact situation) as soon as possible after writing it. Plenty of
+issues big and small don’t become apparent until this happens, so
+modern software engineering preaches this practice with rather some
+zealotry.</p>
+
+<h3 id="ground-truth-what-does-good-look-like">Ground truth: What does good look like?</h3>
+<p>In order to test, we need to know what correct looks like across a
+wide range of inputs. Assuming the code isn’t well documented and
+tested, the fall back plan is to have a substantial corpus of inputs
+which we can run through the existing program to provide expected
+results for an end-to-end test suite.</p>
+
+<p>For each segment of the program we want to work on, we run the suite,
+recording what goes into the segment and what comes out: This is now
+our test suite for the segment, and we can set to work on it in
+isolation.</p>
+
+<p>However, this only works if we can be sure the test suite is fully
+representative across the full input domain. Depending on the program,
+this can be a very difficult exercise. It seems likely that a very
+large part of this code was written to deal with various
+idiosyncrasies in the input data – of these, few will be easy to
+understand: They will have unstated assumptions, and if we don’t have
+input data exhibiting these idiosyncrasies, there are some deep rabbit
+holes to crawl down here, trying to understand what’s going on, or if
+its even needed anymore.  Remember, if we just blindly copy the
+existing logic, we will just be carrying over the complexity, not
+achieving the (presumed) goal of the project.</p>
+
+<blockquote>
+  <p>A very large part of this code was written to deal with various 
+idiosyncrasies in the input data – of these, few will be easy to 
+understand: They will have unstated assumptions, there are some deep 
+rabbit holes to crawl down here 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<h3 id="the-vetocracy">The Vetocracy</h3>
+<p>Last, but in many ways the most important issue: Assuming we get all
+our technical ducks in a row, who will we need to convince to actually
+undertake the project? One of the biggest and most underrated
+challenges of large software projects in non-software organisations is
+to get all the stakeholders aligned . For more sprawling systems, it
+can be difficult to even identify these, much less convince them of
+the value of the project.</p>
+
+<blockquote>
+  <p>Assuming we get all our technical ducks in a row, who will we need to 
+convince? One of the most underrated challenges of large software 
+projects is to get all the stakeholders aligned 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p>It’s easy enough to argue the benefits of a reengineered system, it’s
+even comparatively easy to secure a budget for the project. What’s
+almost impossible is to get through the vetocracy.</p>
+
+<p>Our rewritten program almost certainly won’t produce the exact same
+results, especially if it deals with numerical computation. There will
+be minor variations on how floating point numbers are rounded or
+truncated and how certain data types are represented. The idiomatic
+way to do some things in the target language will be slightly
+different from the Fortran way, with results being slightly off in
+some decimal, or presented in a slightly different way. How many
+people will we need to convince that this is actually OK?</p>
+
+<p>Inevitably, we will find errors in the Fortran code and want to fix
+them. Someone somewhere more powerful than us got their current job on
+the basis of a report that (may have) included an incorrect figure due
+to the error we found. They will be obliged to go back and report
+this, but not before they sucked all the oxygen out of our team for
+three months exhausting all possible theoretical reasons that the
+error we found is not, in fact, an error.</p>
+
+<p>That cafeteria menu subsystem? Because it hasn’t been used for 20
+years, nobody knows who owns it. Signing off on its removal is a risk,
+punting on the decision isn’t, so expect this decision to get punted.</p>
+
+<p>And this is all before the lawyers get involved.</p>
+
+<p>One of the reasons so many of the large and important organisations
+running big, old systems don’t set out to do something like this, or
+fail miserably if they try, is that they underestimate this dynamic.</p>
+
+<blockquote>
+  <p>One of the reasons so many of the large and important organisations 
+running big, old systems don’t set out to do something like this, or 
+fail miserably if they try, is that they underestimate this dynamic 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p><img src="/assets/vysoke_tatra_mountain_lake.jpg" alt="Mountain lake" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Doing this is literally possible, but just barely. In this essay, I’ve
+set out some of the minimal groundwork required to even contemplate
+such a project: We need clarity on what this program does, why we want
+to change it, whether we can provide a compelling argument for the
+correctness of our changes and whether the bureaucratic context even
+allows us to.</p>
+
+<blockquote>
+  <p>Doing this is literally possible, but just barely 
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Doing this is literally possible, but just barely&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
+
+<p>Good luck, you will need it.</p>
+
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+  </div><a class="u-url" href="/converting-legacy-code" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Martin Seebach</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Martin Seebach</li><li><a class="u-email" href="mailto:mail@martinseebach.dk">mail@martinseebach.dk</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mseebach"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mseebach</span></a></li><li><a href="https://www.twitter.com/mseebach"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">mseebach</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
