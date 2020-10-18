@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2020-10-18T11:40:35-05:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00-05:00</published><updated>2020-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code">&lt;p&gt;A question &lt;a href=&quot;https://twitter.com/skdh&quot;&gt;Sabine Hossenfelder&lt;/a&gt; asked on
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2020-10-18T12:12:43-05:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00-05:00</published><updated>2020-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code">&lt;p&gt;A question &lt;a href=&quot;https://twitter.com/skdh&quot;&gt;Sabine Hossenfelder&lt;/a&gt; asked on
 Twitter prompted this essay:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -40,9 +40,9 @@ proposition, even when (modern) software architecture principles
 suggest it should be separate.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Some systems are figuratively speaking responsible for everything from 
-the moon landing to the cafeteria menu, an “everything but the kitchen 
-sink” system 
+  &lt;p&gt;Some systems are figuratively speaking responsible for everything from
+the moon landing to the cafeteria menu, an “everything but the kitchen
+sink” system
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -68,10 +68,10 @@ what those millions of lines are doing, learning Fortran will be a
 rounding error.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The hardest part of programming isn’t the language, it’s what we’re 
-trying to do with it. Next to the challenge of understanding what 
-those millions of lines are doing, learning Fortran will be a rounding 
-error 
+  &lt;p&gt;The hardest part of programming isn’t the language, it’s what we’re
+trying to do with it. Next to the challenge of understanding what
+those millions of lines are doing, learning Fortran will be a rounding
+error
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -89,9 +89,9 @@ nasty habit of not caring how well engineered software is, only
 whether it runs, so “works” trumps “good”.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;These shortcuts are known as tech debt, which optimistically suggests 
-the intention to pay it down in the future. In reality, this is often 
-neglected 
+  &lt;p&gt;These shortcuts are known as tech debt, which optimistically suggests
+the intention to pay it down in the future. In reality, this is often
+neglected
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -150,10 +150,10 @@ existing logic, we will just be carrying over the complexity, not
 achieving the (presumed) goal of the project.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;A very large part of this code was written to deal with various 
-idiosyncrasies in the input data – of these, few will be easy to 
-understand: They will have unstated assumptions, there are some deep 
-rabbit holes to crawl down here 
+  &lt;p&gt;A very large part of this code was written to deal with various
+idiosyncrasies in the input data – of these, few will be easy to
+understand: They will have unstated assumptions, there are some deep
+rabbit holes to crawl down here
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -167,9 +167,9 @@ can be difficult to even identify these, much less convince them of
 the value of the project.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Assuming we get all our technical ducks in a row, who will we need to 
-convince? One of the most underrated challenges of large software 
-projects is to get all the stakeholders aligned 
+  &lt;p&gt;Assuming we get all our technical ducks in a row, who will we need to
+convince? One of the most underrated challenges of large software
+projects is to get all the stakeholders aligned
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -205,9 +205,9 @@ running big, old systems don’t set out to do something like this, or
 fail miserably if they try, is that they underestimate this dynamic.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;One of the reasons so many of the large and important organisations 
-running big, old systems don’t set out to do something like this, or 
-fail miserably if they try, is that they underestimate this dynamic 
+  &lt;p&gt;One of the reasons so many of the large and important organisations
+running big, old systems don’t set out to do something like this, or
+fail miserably if they try, is that they underestimate this dynamic
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -222,13 +222,13 @@ correctness of our changes and whether the bureaucratic context even
 allows us to.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Doing this is literally possible, but just barely 
+  &lt;p&gt;Doing this is literally possible, but just barely
     &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Doing this is literally possible, but just barely&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Good luck, you will need it.&lt;/p&gt;
 
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">A question Sabine Hossenfelder asked on Twitter prompted this essay:</summary></entry><entry><title type="html">Complexity as a virtue</title><link href="https://ma.rtinseeba.ch/complexity-as-virtue" rel="alternate" type="text/html" title="Complexity as a virtue" /><published>2020-07-25T00:00:00-05:00</published><updated>2020-07-25T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/complexity-as-virtue</id><content type="html" xml:base="https://ma.rtinseeba.ch/complexity-as-virtue">&lt;p&gt;&lt;em&gt;Or, How to make liberalism a personal value&lt;/em&gt;&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">A question Sabine Hossenfelder asked on Twitter prompted this essay:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" /><media:content medium="image" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Complexity as a virtue</title><link href="https://ma.rtinseeba.ch/complexity-as-virtue" rel="alternate" type="text/html" title="Complexity as a virtue" /><published>2020-07-25T00:00:00-05:00</published><updated>2020-07-25T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/complexity-as-virtue</id><content type="html" xml:base="https://ma.rtinseeba.ch/complexity-as-virtue">&lt;p&gt;&lt;em&gt;Or, How to make liberalism a personal value&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;What prompted this essay was my observations of how people reacted to government
 recommendations and guidelines on how to respond to the COVID-19 pandemic. A
@@ -553,7 +553,7 @@ stage.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Discussion welcome at &lt;a href=&quot;https://news.ycombinator.com/item?id=6492921&quot;&gt;Hacker News&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">The idea of an audition project comes up frequently in recommendations about hiring and interviewing, most recently in HackerEarth’s Technical Interviews: What’s beyond the Fizzbuzz challenge. I find points 1-4 solid and insightful advice, but point 5 – the audition project – irks me.</summary></entry><entry><title type="html">JAXB isn’t half bad</title><link href="https://ma.rtinseeba.ch/jaxb-isnt-half-bad" rel="alternate" type="text/html" title="JAXB isn't half bad" /><published>2013-06-14T00:00:00-05:00</published><updated>2013-06-14T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</id><content type="html" xml:base="https://ma.rtinseeba.ch/jaxb-isnt-half-bad">&lt;p&gt;This week I had to implement a small Java program that would provide a
+&lt;p&gt;Discussion welcome at &lt;a href=&quot;https://news.ycombinator.com/item?id=6492921&quot;&gt;Hacker News&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">The idea of an audition project comes up frequently in recommendations about hiring and interviewing, most recently in HackerEarth’s Technical Interviews: What’s beyond the Fizzbuzz challenge. I find points 1-4 solid and insightful advice, but point 5 – the audition project – irks me.</summary></entry><entry><title type="html">JAXB isn’t half bad</title><link href="https://ma.rtinseeba.ch/jaxb-isnt-half-bad" rel="alternate" type="text/html" title="JAXB isn’t half bad" /><published>2013-06-14T00:00:00-05:00</published><updated>2013-06-14T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</id><content type="html" xml:base="https://ma.rtinseeba.ch/jaxb-isnt-half-bad">&lt;p&gt;This week I had to implement a small Java program that would provide a
 UI to manipulate an XML file. My heart sank a bit at the promise of a
 trip to the Java/XML enterprise heartland.&lt;/p&gt;
 
@@ -637,7 +637,7 @@ errors to work from.&lt;/p&gt;</content><author><name></name></author><summary t
 
 &lt;hr /&gt;
 
-&lt;p&gt;Written for &amp;amp; posted on &lt;a href=&quot;https://devblog.timgroup.com/2010/10/18/double_considered_harmful/&quot;&gt;the TIM Group blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">_ or: How the number 1.2 cramped my style.._</summary></entry><entry><title type="html">Beautiful doesn’t make it true</title><link href="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true" rel="alternate" type="text/html" title="Beautiful doesn't make it true" /><published>2010-04-18T00:00:00-05:00</published><updated>2010-04-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</id><content type="html" xml:base="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true">&lt;p&gt;Yesterday, &lt;a href=&quot;http://twitter.com/christianevejlo&quot;&gt;@christianevejlo&lt;/a&gt; tweeted interest in whether
+&lt;p&gt;Written for &amp;amp; posted on &lt;a href=&quot;https://devblog.timgroup.com/2010/10/18/double_considered_harmful/&quot;&gt;the TIM Group blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">_ or: How the number 1.2 cramped my style.._</summary></entry><entry><title type="html">Beautiful doesn’t make it true</title><link href="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true" rel="alternate" type="text/html" title="Beautiful doesn’t make it true" /><published>2010-04-18T00:00:00-05:00</published><updated>2010-04-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</id><content type="html" xml:base="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true">&lt;p&gt;Yesterday, &lt;a href=&quot;http://twitter.com/christianevejlo&quot;&gt;@christianevejlo&lt;/a&gt; tweeted interest in whether
 volcano-grounded planes were &lt;a href=&quot;http://twitter.com/christianevejlo/status/12346732175&quot;&gt;a net benefit for the
 environment&lt;/a&gt;. Retweeting an answer, &lt;a href=&quot;http://twitter.com/christianevejlo/status/12355468953&quot;&gt;she referenced&lt;/a&gt;
 &lt;em&gt;Information is Beautiful&lt;/em&gt;’s post &lt;a href=&quot;http://www.informationisbeautiful.net/2010/planes-or-volcano/&quot;&gt;“Planes or Volcano”&lt;/a&gt;, an indeed

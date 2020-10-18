@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Converting legacy code"
+image: /assets/vysoke_tatra_mountain_lake.jpg
+description: How to convert millions of lines of code to a modern software project
 ---
 
 A question [Sabine Hossenfelder](https://twitter.com/skdh) asked on
@@ -42,9 +44,9 @@ just adding an extra feature to an existing system a very tantalising
 proposition, even when (modern) software architecture principles
 suggest it should be separate.
 
-> Some systems are figuratively speaking responsible for everything from 
-> the moon landing to the cafeteria menu, an “everything but the kitchen 
-> sink” system 
+> Some systems are figuratively speaking responsible for everything from
+> the moon landing to the cafeteria menu, an “everything but the kitchen
+> sink” system
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 These systems are comparatively easy to reengineer, as we can often
@@ -68,10 +70,10 @@ we’re trying to do with it. Next to the challenge of understanding
 what those millions of lines are doing, learning Fortran will be a
 rounding error.
 
-> The hardest part of programming isn’t the language, it’s what we’re 
-> trying to do with it. Next to the challenge of understanding what 
-> those millions of lines are doing, learning Fortran will be a rounding 
-> error 
+> The hardest part of programming isn’t the language, it’s what we’re
+> trying to do with it. Next to the challenge of understanding what
+> those millions of lines are doing, learning Fortran will be a rounding
+> error
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 One could imagine that one of the reasons it’s difficult to make
@@ -87,9 +89,9 @@ domain specialists, not expert software engineers. Computers have a
 nasty habit of not caring how well engineered software is, only
 whether it runs, so “works” trumps “good”.
 
-> These shortcuts are known as tech debt, which optimistically suggests 
-> the intention to pay it down in the future. In reality, this is often 
-> neglected 
+> These shortcuts are known as tech debt, which optimistically suggests
+> the intention to pay it down in the future. In reality, this is often
+> neglected
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 This mess, much more than the language, is why making changes to the
@@ -146,10 +148,10 @@ its even needed anymore.  Remember, if we just blindly copy the
 existing logic, we will just be carrying over the complexity, not
 achieving the (presumed) goal of the project.
 
-> A very large part of this code was written to deal with various 
-> idiosyncrasies in the input data -- of these, few will be easy to 
-> understand: They will have unstated assumptions, there are some deep 
-> rabbit holes to crawl down here 
+> A very large part of this code was written to deal with various
+> idiosyncrasies in the input data -- of these, few will be easy to
+> understand: They will have unstated assumptions, there are some deep
+> rabbit holes to crawl down here
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 ### The Vetocracy
@@ -161,9 +163,9 @@ to get all the stakeholders aligned . For more sprawling systems, it
 can be difficult to even identify these, much less convince them of
 the value of the project.
 
-> Assuming we get all our technical ducks in a row, who will we need to 
-> convince? One of the most underrated challenges of large software 
-> projects is to get all the stakeholders aligned 
+> Assuming we get all our technical ducks in a row, who will we need to
+> convince? One of the most underrated challenges of large software
+> projects is to get all the stakeholders aligned
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 It’s easy enough to argue the benefits of a reengineered system, it’s
@@ -197,9 +199,9 @@ One of the reasons so many of the large and important organisations
 running big, old systems don’t set out to do something like this, or
 fail miserably if they try, is that they underestimate this dynamic.
 
-> One of the reasons so many of the large and important organisations 
-> running big, old systems don’t set out to do something like this, or 
-> fail miserably if they try, is that they underestimate this dynamic 
+> One of the reasons so many of the large and important organisations
+> running big, old systems don’t set out to do something like this, or
+> fail miserably if they try, is that they underestimate this dynamic
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 ![Mountain lake](/assets/vysoke_tatra_mountain_lake.jpg)
@@ -212,7 +214,7 @@ to change it, whether we can provide a compelling argument for the
 correctness of our changes and whether the bureaucratic context even
 allows us to.
 
-> Doing this is literally possible, but just barely 
+> Doing this is literally possible, but just barely
 > &nbsp;&nbsp;&nbsp; <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Doing this is literally possible, but just barely&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a>
 
 Good luck, you will need it.

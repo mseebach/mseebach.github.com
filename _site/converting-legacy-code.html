@@ -2,20 +2,24 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Converting legacy code | Martin Seebach</title>
 <meta name="generator" content="Jekyll v3.8.7" />
 <meta property="og:title" content="Converting legacy code" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A question Sabine Hossenfelder asked on Twitter prompted this essay:" />
-<meta property="og:description" content="A question Sabine Hossenfelder asked on Twitter prompted this essay:" />
+<meta name="description" content="How to convert millions of lines of code to a modern software project" />
+<meta property="og:description" content="How to convert millions of lines of code to a modern software project" />
 <link rel="canonical" href="https://ma.rtinseeba.ch/converting-legacy-code" />
 <meta property="og:url" content="https://ma.rtinseeba.ch/converting-legacy-code" />
 <meta property="og:site_name" content="Martin Seebach" />
+<meta property="og:image" content="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-10-18T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" />
+<meta property="twitter:title" content="Converting legacy code" />
 <script type="application/ld+json">
-{"description":"A question Sabine Hossenfelder asked on Twitter prompted this essay:","@type":"BlogPosting","headline":"Converting legacy code","dateModified":"2020-10-18T00:00:00-05:00","datePublished":"2020-10-18T00:00:00-05:00","url":"https://ma.rtinseeba.ch/converting-legacy-code","mainEntityOfPage":{"@type":"WebPage","@id":"https://ma.rtinseeba.ch/converting-legacy-code"},"@context":"https://schema.org"}</script>
+{"datePublished":"2020-10-18T00:00:00-05:00","dateModified":"2020-10-18T00:00:00-05:00","description":"How to convert millions of lines of code to a modern software project","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://ma.rtinseeba.ch/converting-legacy-code"},"url":"https://ma.rtinseeba.ch/converting-legacy-code","image":"https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg","headline":"Converting legacy code","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://ma.rtinseeba.ch/feed.xml" title="Martin Seebach" /></head>
 <body><header class="site-header" role="banner">
@@ -87,9 +91,9 @@ proposition, even when (modern) software architecture principles
 suggest it should be separate.</p>
 
 <blockquote>
-  <p>Some systems are figuratively speaking responsible for everything from 
-the moon landing to the cafeteria menu, an “everything but the kitchen 
-sink” system 
+  <p>Some systems are figuratively speaking responsible for everything from
+the moon landing to the cafeteria menu, an “everything but the kitchen
+sink” system
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -115,10 +119,10 @@ what those millions of lines are doing, learning Fortran will be a
 rounding error.</p>
 
 <blockquote>
-  <p>The hardest part of programming isn’t the language, it’s what we’re 
-trying to do with it. Next to the challenge of understanding what 
-those millions of lines are doing, learning Fortran will be a rounding 
-error 
+  <p>The hardest part of programming isn’t the language, it’s what we’re
+trying to do with it. Next to the challenge of understanding what
+those millions of lines are doing, learning Fortran will be a rounding
+error
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -136,9 +140,9 @@ nasty habit of not caring how well engineered software is, only
 whether it runs, so “works” trumps “good”.</p>
 
 <blockquote>
-  <p>These shortcuts are known as tech debt, which optimistically suggests 
-the intention to pay it down in the future. In reality, this is often 
-neglected 
+  <p>These shortcuts are known as tech debt, which optimistically suggests
+the intention to pay it down in the future. In reality, this is often
+neglected
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -197,10 +201,10 @@ existing logic, we will just be carrying over the complexity, not
 achieving the (presumed) goal of the project.</p>
 
 <blockquote>
-  <p>A very large part of this code was written to deal with various 
-idiosyncrasies in the input data – of these, few will be easy to 
-understand: They will have unstated assumptions, there are some deep 
-rabbit holes to crawl down here 
+  <p>A very large part of this code was written to deal with various
+idiosyncrasies in the input data – of these, few will be easy to
+understand: They will have unstated assumptions, there are some deep
+rabbit holes to crawl down here
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -214,9 +218,9 @@ can be difficult to even identify these, much less convince them of
 the value of the project.</p>
 
 <blockquote>
-  <p>Assuming we get all our technical ducks in a row, who will we need to 
-convince? One of the most underrated challenges of large software 
-projects is to get all the stakeholders aligned 
+  <p>Assuming we get all our technical ducks in a row, who will we need to
+convince? One of the most underrated challenges of large software
+projects is to get all the stakeholders aligned
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -252,9 +256,9 @@ running big, old systems don’t set out to do something like this, or
 fail miserably if they try, is that they underestimate this dynamic.</p>
 
 <blockquote>
-  <p>One of the reasons so many of the large and important organisations 
-running big, old systems don’t set out to do something like this, or 
-fail miserably if they try, is that they underestimate this dynamic 
+  <p>One of the reasons so many of the large and important organisations
+running big, old systems don’t set out to do something like this, or
+fail miserably if they try, is that they underestimate this dynamic
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
@@ -269,7 +273,7 @@ correctness of our changes and whether the bureaucratic context even
 allows us to.</p>
 
 <blockquote>
-  <p>Doing this is literally possible, but just barely 
+  <p>Doing this is literally possible, but just barely
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Doing this is literally possible, but just barely&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
 </blockquote>
 
