@@ -219,5 +219,6 @@ allows us to.
 
 Good luck, you will need it.
 
+&nbsp;
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a href="https://twitter.com/mseebach?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @mseebach</a>
