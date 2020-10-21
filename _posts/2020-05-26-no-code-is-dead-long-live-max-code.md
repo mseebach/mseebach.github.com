@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "Low/No-Code is dead, long live Max-code"
+image: /assets/oak-tree-field-chilterns.jpg
+description: "No-code is a terrible
+misunderstanding. The idea that Real Programming&trade; is hard, and that
+non-programmers should be exposed to it through carefully procured
+platforms and interfaces is almost as old as programming itself"
 ---
 
 > A low-code development platform (LCDP) is software that provides a
@@ -99,6 +104,8 @@ and must have their hands tied by point-and-click interfaces and
 "configuration". Some of them indeed can't do this, but that won't
 keep them from trying, and sometimes succeeding, which is terrifying.
 
+![Oak tree in field](/assets/oak-tree-field-chilterns.jpg)
+
 I don't believe that the patronisation is necessary: While developers
 and product managers fretted over how code would scare people, a
 plausible candidate for the most widely used programming language in
@@ -125,4 +132,6 @@ success of coding boot camps suggests this is an eminently viable path.
 Instead of hiding from the complex reality, we must embrace it and
 unlock the amazing power of computing for all.
 
-[Discuss on Twitter](https://twitter.com/mseebach/status/1265366229390430210)
+&nbsp;
+
+<a href="https://twitter.com/mseebach?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @mseebach</a>
