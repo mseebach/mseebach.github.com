@@ -3,7 +3,7 @@
 # cli: ./docker.sh jekyll [build,serve]
 # cli: ./docker.sh bundle info
 
-export JEKYLL_VERSION=3.8
+export JEKYLL_VERSION=4
 docker run --rm \
   --volume="$PWD:/srv/jekyll" \
   --volume="/tmp/jekyll-ruby-bundle:/usr/local/bundle" \

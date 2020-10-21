@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2020-10-19T04:36:11-05:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00-05:00</published><updated>2020-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code">&lt;p&gt;A question &lt;a href=&quot;https://twitter.com/skdh&quot;&gt;Sabine Hossenfelder&lt;/a&gt; asked on
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2020-10-21T04:57:23-05:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00-05:00</published><updated>2020-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code">&lt;p&gt;A question &lt;a href=&quot;https://twitter.com/skdh&quot;&gt;Sabine Hossenfelder&lt;/a&gt; asked on
 Twitter prompted this essay:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -238,7 +238,7 @@ very substantial number of people seem to explicitly desire exact instructions
 from the government on how to go about their business and they despair when
 those instructions are even a little vague.&lt;/p&gt;
 
-&lt;p&gt;Liberalism is the name of a political ideology&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, which ultimately pertains to
+&lt;p&gt;Liberalism is the name of a political ideology&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, which ultimately pertains to
 the rights and duties of the state and formal power structure. But there is more
 to liberalism than political form. Liberalism relies on a personal, moral
 commitment. Without liberal people, wishing to live a liberal life, the liberal
@@ -365,10 +365,10 @@ Given where we are, as outlined and lamented in this post, it was probably
 necessary, and frankly as far as laws go, we can and are doing a lot worse than
 masks.)&lt;/p&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;In this essay, “liberalism” is used in the European sense to mean “classical liberalism”, not to refer to the US political left. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;In this essay, “liberalism” is used in the European sense to mean “classical liberalism”, not to refer to the US political left. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;</content><author><name></name></author><summary type="html">Or, How to make liberalism a personal value</summary></entry><entry><title type="html">Low/No-Code is dead, long live Max-code</title><link href="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code" rel="alternate" type="text/html" title="Low/No-Code is dead, long live Max-code" /><published>2020-05-26T00:00:00-05:00</published><updated>2020-05-26T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code">&lt;blockquote&gt;
@@ -399,7 +399,7 @@ robotics projects. Of course, kids can’t be trusted to operate
 keyboards, so the programming interface was a canvas where the user
 would drag and drop big, colourful blocks and snap them into each
 other. The total irony of the situation was that the blocks were
-literally &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;for&lt;/code&gt; and you had to plug conditions and actions
+literally &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt; and you had to plug conditions and actions
 into them. Of course, on the monitors of the late ’90s, you would run
 out of space pretty quickly as well, so anything more complicated than
 a switch turning something on and off would overflow the screen, and
