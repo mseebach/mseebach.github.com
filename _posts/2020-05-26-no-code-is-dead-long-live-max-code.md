@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Low/No-Code is dead, long live Max-code"
+title: "No-Code is dead, long live Max-code"
 image: /assets/oak-tree-field-chilterns.jpg
 description: "No-code is a terrible
 misunderstanding. The idea that Real Programming&trade; is hard, and that
