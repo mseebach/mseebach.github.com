@@ -1,81 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2020-10-21T06:32:33-05:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00-05:00</published><updated>2020-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code">&lt;p&gt;A question &lt;a href=&quot;https://twitter.com/skdh&quot;&gt;Sabine Hossenfelder&lt;/a&gt; asked on
-Twitter prompted this essay:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://ma.rtinseeba.ch/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ma.rtinseeba.ch/" rel="alternate" type="text/html" /><updated>2023-06-02T17:48:58+01:00</updated><id>https://ma.rtinseeba.ch/feed.xml</id><title type="html">Martin Seebach</title><entry><title type="html">Converting legacy code</title><link href="https://ma.rtinseeba.ch/converting-legacy-code" rel="alternate" type="text/html" title="Converting legacy code" /><published>2020-10-18T00:00:00+01:00</published><updated>2020-10-18T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/converting-legacy-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/converting-legacy-code"><![CDATA[<p>A question <a href="https://twitter.com/skdh">Sabine Hossenfelder</a> asked on
+Twitter prompted this essay:</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;If you had a ten million lines, decades-in-the-making fortran code,
+<blockquote>
+  <p>If you had a ten million lines, decades-in-the-making fortran code,
 how’d you convert it to a modern language, how long would it take, and
 how much would it cost?
-&lt;a href=&quot;https://twitter.com/skdh/status/1316570664103563265&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/skdh/status/1316570664103563265">↪</a></p>
+</blockquote>
 
-&lt;p&gt;There are no short or easy answers to this question. Inevitably, it
-depends on a lot of factors:&lt;/p&gt;
+<p>There are no short or easy answers to this question. Inevitably, it
+depends on a lot of factors:</p>
 
-&lt;p&gt;We need a perfectly clear understanding of what the program is, what
-it’s used for, and by whom.&lt;/p&gt;
+<p>We need a perfectly clear understanding of what the program is, what
+it’s used for, and by whom.</p>
 
-&lt;p&gt;We need to know what we’re trying to achieve by changing it. If this
+<p>We need to know what we’re trying to achieve by changing it. If this
 is not a clear and significant benefit, and not clearly articulated
 and shared by the project team and sponsors, the project will flounder
-and ultimately fail.&lt;/p&gt;
+and ultimately fail.</p>
 
-&lt;p&gt;We need to know if the program still works after we’ve changed it.
+<p>We need to know if the program still works after we’ve changed it.
 This sounds basic, but is a surprisingly complex topic, especially for
-large, old systems.&lt;/p&gt;
+large, old systems.</p>
 
-&lt;p&gt;And finally we need to understand the organisational politics that
-will govern our project.&lt;/p&gt;
+<p>And finally we need to understand the organisational politics that
+will govern our project.</p>
 
-&lt;p&gt;Let’s try to unpack some of these questions.&lt;/p&gt;
+<p>Let’s try to unpack some of these questions.</p>
 
-&lt;h3 id=&quot;domain&quot;&gt;Domain&lt;/h3&gt;
-&lt;p&gt;What is this thing even? 10 millions lines of code is a lot.&lt;/p&gt;
+<h3 id="domain">Domain</h3>
+<p>What is this thing even? 10 millions lines of code is a lot.</p>
 
-&lt;p&gt;Some systems are figuratively speaking responsible for everything from
+<p>Some systems are figuratively speaking responsible for everything from
 the moon landing to the cafeteria menu, an “everything but the kitchen
 sink” system. This is especially common in older systems, conceived at
 a time when the overhead of building and integrating new systems made
 just adding an extra feature to an existing system a very tantalising
 proposition, even when (modern) software architecture principles
-suggest it should be separate.&lt;/p&gt;
+suggest it should be separate.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Some systems are figuratively speaking responsible for everything from
+<blockquote>
+  <p>Some systems are figuratively speaking responsible for everything from
 the moon landing to the cafeteria menu, an “everything but the kitchen
 sink” system
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Some systems are figuratively speaking responsible for everything from the moon landing to the cafeteria menu, an “everything but the kitchen sink” system&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;These systems are comparatively easy to reengineer, as we can often
+<p>These systems are comparatively easy to reengineer, as we can often
 peel off these features in an iterative manner. Indeed, this will
 often have happened: We may find that the cafeteria menu module was
 last used in 2002 when that particular usage was migrated to another,
-new system.&lt;/p&gt;
+new system.</p>
 
-&lt;p&gt;At the other end of this scale, we find the single, contained model,
+<p>At the other end of this scale, we find the single, contained model,
 responsible for converting a tightly bounded set of inputs into a
 similarly tightly bounded set of outputs. It is easier to reason about
 a system like this, but the stakes are higher: This system likely
-exists because what it does is very important to someone powerful.&lt;/p&gt;
+exists because what it does is very important to someone powerful.</p>
 
-&lt;h3 id=&quot;conversion-or-the-big-20-rewrite&quot;&gt;Conversion? Or The Big 2.0 Rewrite&lt;/h3&gt;
-&lt;p&gt;Why is it important to convert this program? Fortran works fine, so
+<h3 id="conversion-or-the-big-20-rewrite">Conversion? Or The Big 2.0 Rewrite</h3>
+<p>Why is it important to convert this program? Fortran works fine, so
 why not keep it in Fortran? Presumably, there are changes that need to
 be made, and it’s easier to find programmers in more modern languages.
 However, the hardest part of programming isn’t the language, it’s what
 we’re trying to do with it. Next to the challenge of understanding
 what those millions of lines are doing, learning Fortran will be a
-rounding error.&lt;/p&gt;
+rounding error.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;The hardest part of programming isn’t the language, it’s what we’re
+<blockquote>
+  <p>The hardest part of programming isn’t the language, it’s what we’re
 trying to do with it. Next to the challenge of understanding what
 those millions of lines are doing, learning Fortran will be a rounding
 error
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;The hardest part of programming isn’t the language, it’s what we’re trying to do with it. Next to the challenge of understanding what those millions of lines are doing, learning Fortran will be a rounding error&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;One could imagine that one of the reasons it’s difficult to make
+<p>One could imagine that one of the reasons it’s difficult to make
 changes to the existing codebase is that it’s poorly structured.
 Getting the structure just right is difficult for the best
 programmers, and especially under the pressure of deadlines and other
@@ -86,58 +86,58 @@ compound over the years, and in our case, the problem is quite likely
 to be exacerbated by the code being written by people who are academic
 domain specialists, not expert software engineers. Computers have a
 nasty habit of not caring how well engineered software is, only
-whether it runs, so “works” trumps “good”.&lt;/p&gt;
+whether it runs, so “works” trumps “good”.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;These shortcuts are known as tech debt, which optimistically suggests
+<blockquote>
+  <p>These shortcuts are known as tech debt, which optimistically suggests
 the intention to pay it down in the future. In reality, this is often
 neglected
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;These shortcuts are known as tech debt, which optimistically suggests the intention to pay it down in the future. In reality, this is often neglected&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;This mess, much more than the language, is why making changes to the
+<p>This mess, much more than the language, is why making changes to the
 codebase is so difficult. But untangling it will complicate any
-rewriting effort to an even larger degree.&lt;/p&gt;
+rewriting effort to an even larger degree.</p>
 
-&lt;h3 id=&quot;things-you-should-never-do&quot;&gt;Things you should never do&lt;/h3&gt;
-&lt;p&gt;I would be remiss if I didn’t take the opportunity to link one of the
-seminal software engineering blogs here: &lt;a href=&quot;https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/&quot;&gt;Joel on Software: Things You
+<h3 id="things-you-should-never-do">Things you should never do</h3>
+<p>I would be remiss if I didn’t take the opportunity to link one of the
+seminal software engineering blogs here: <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">Joel on Software: Things You
 Should Never
-Do&lt;/a&gt;.
-Spoiler alert: Exactly this.&lt;/p&gt;
+Do</a>.
+Spoiler alert: Exactly this.</p>
 
-&lt;p&gt;What we can do, however, is to progressively develop the program in a
+<p>What we can do, however, is to progressively develop the program in a
 certain direction that allows us to achieve some of the same outcomes.
-A favourite text on this process is &lt;a href=&quot;https://www.amazon.co.uk/Growing-Object-Oriented-Software-Guided-Signature/dp/0321503627/&quot;&gt;Growing Object-Oriented Software,
+A favourite text on this process is <a href="https://www.amazon.co.uk/Growing-Object-Oriented-Software-Guided-Signature/dp/0321503627/">Growing Object-Oriented Software,
 Guided by
-Tests&lt;/a&gt;.
+Tests</a>.
 Your Fortran program probably isn’t object oriented, but many of the
 principles still apply. The idea is to identify and carve out
 independent pieces of code, iteratively change and improve the code,
 continuously adding smaller and smaller tests as we work through it.
-This requires a “ground truth”, which we will return to.&lt;/p&gt;
+This requires a “ground truth”, which we will return to.</p>
 
-&lt;p&gt;The reason we want to do this, as opposed to starting from a blank
+<p>The reason we want to do this, as opposed to starting from a blank
 slate, is to enjoy the disciplining constraint of running our code
 against a realistic workload (ideally production, depending on the
 exact situation) as soon as possible after writing it. Plenty of
 issues big and small don’t become apparent until this happens, so
 modern software engineering preaches this practice with rather some
-zealotry.&lt;/p&gt;
+zealotry.</p>
 
-&lt;h3 id=&quot;ground-truth-what-does-good-look-like&quot;&gt;Ground truth: What does good look like?&lt;/h3&gt;
-&lt;p&gt;In order to test, we need to know what correct looks like across a
+<h3 id="ground-truth-what-does-good-look-like">Ground truth: What does good look like?</h3>
+<p>In order to test, we need to know what correct looks like across a
 wide range of inputs. Assuming the code isn’t well documented and
 tested, the fall back plan is to have a substantial corpus of inputs
 which we can run through the existing program to provide expected
-results for an end-to-end test suite.&lt;/p&gt;
+results for an end-to-end test suite.</p>
 
-&lt;p&gt;For each segment of the program we want to work on, we run the suite,
+<p>For each segment of the program we want to work on, we run the suite,
 recording what goes into the segment and what comes out: This is now
 our test suite for the segment, and we can set to work on it in
-isolation.&lt;/p&gt;
+isolation.</p>
 
-&lt;p&gt;However, this only works if we can be sure the test suite is fully
+<p>However, this only works if we can be sure the test suite is fully
 representative across the full input domain. Depending on the program,
 this can be a very difficult exercise. It seems likely that a very
 large part of this code was written to deal with various
@@ -147,167 +147,167 @@ input data exhibiting these idiosyncrasies, there are some deep rabbit
 holes to crawl down here, trying to understand what’s going on, or if
 its even needed anymore.  Remember, if we just blindly copy the
 existing logic, we will just be carrying over the complexity, not
-achieving the (presumed) goal of the project.&lt;/p&gt;
+achieving the (presumed) goal of the project.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;A very large part of this code was written to deal with various
+<blockquote>
+  <p>A very large part of this code was written to deal with various
 idiosyncrasies in the input data – of these, few will be easy to
 understand: They will have unstated assumptions, there are some deep
 rabbit holes to crawl down here
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;A very large part of this code was written to deal with various idiosyncrasies in the input data -- of these, few will be easy to understand: They will have unstated assumptions, there are some deep rabbit holes to crawl down here&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;h3 id=&quot;the-vetocracy&quot;&gt;The Vetocracy&lt;/h3&gt;
-&lt;p&gt;Last, but in many ways the most important issue: Assuming we get all
+<h3 id="the-vetocracy">The Vetocracy</h3>
+<p>Last, but in many ways the most important issue: Assuming we get all
 our technical ducks in a row, who will we need to convince to actually
 undertake the project? One of the biggest and most underrated
 challenges of large software projects in non-software organisations is
 to get all the stakeholders aligned . For more sprawling systems, it
 can be difficult to even identify these, much less convince them of
-the value of the project.&lt;/p&gt;
+the value of the project.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Assuming we get all our technical ducks in a row, who will we need to
+<blockquote>
+  <p>Assuming we get all our technical ducks in a row, who will we need to
 convince? One of the most underrated challenges of large software
 projects is to get all the stakeholders aligned
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Assuming we get all our technical ducks in a row, who will we need to convince? One of the most underrated challenges of large software projects is to get all the stakeholders aligned&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;It’s easy enough to argue the benefits of a reengineered system, it’s
+<p>It’s easy enough to argue the benefits of a reengineered system, it’s
 even comparatively easy to secure a budget for the project. What’s
-almost impossible is to get through the vetocracy.&lt;/p&gt;
+almost impossible is to get through the vetocracy.</p>
 
-&lt;p&gt;Our rewritten program almost certainly won’t produce the exact same
+<p>Our rewritten program almost certainly won’t produce the exact same
 results, especially if it deals with numerical computation. There will
 be minor variations on how floating point numbers are rounded or
 truncated and how certain data types are represented. The idiomatic
 way to do some things in the target language will be slightly
 different from the Fortran way, with results being slightly off in
 some decimal, or presented in a slightly different way. How many
-people will we need to convince that this is actually OK?&lt;/p&gt;
+people will we need to convince that this is actually OK?</p>
 
-&lt;p&gt;Inevitably, we will find errors in the Fortran code and want to fix
+<p>Inevitably, we will find errors in the Fortran code and want to fix
 them. Someone somewhere more powerful than us got their current job on
 the basis of a report that (may have) included an incorrect figure due
 to the error we found. They will be obliged to go back and report
 this, but not before they sucked all the oxygen out of our team for
 three months exhausting all possible theoretical reasons that the
-error we found is not, in fact, an error.&lt;/p&gt;
+error we found is not, in fact, an error.</p>
 
-&lt;p&gt;That cafeteria menu subsystem? Because it hasn’t been used for 20
+<p>That cafeteria menu subsystem? Because it hasn’t been used for 20
 years, nobody knows who owns it. Signing off on its removal is a risk,
-punting on the decision isn’t, so expect this decision to get punted.&lt;/p&gt;
+punting on the decision isn’t, so expect this decision to get punted.</p>
 
-&lt;p&gt;And this is all before the lawyers get involved.&lt;/p&gt;
+<p>And this is all before the lawyers get involved.</p>
 
-&lt;p&gt;One of the reasons so many of the large and important organisations
+<p>One of the reasons so many of the large and important organisations
 running big, old systems don’t set out to do something like this, or
-fail miserably if they try, is that they underestimate this dynamic.&lt;/p&gt;
+fail miserably if they try, is that they underestimate this dynamic.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;One of the reasons so many of the large and important organisations
+<blockquote>
+  <p>One of the reasons so many of the large and important organisations
 running big, old systems don’t set out to do something like this, or
 fail miserably if they try, is that they underestimate this dynamic
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;One of the reasons so many of the large and important organisations running big, old systems don’t set out to do something like this, or fail miserably if they try, is that they underestimate this dynamic&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;&lt;img src=&quot;/assets/vysoke_tatra_mountain_lake.jpg&quot; alt=&quot;Mountain lake&quot; /&gt;&lt;/p&gt;
+<p><img src="/assets/vysoke_tatra_mountain_lake.jpg" alt="Mountain lake" /></p>
 
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Doing this is literally possible, but just barely. In this essay, I’ve
+<h3 id="conclusion">Conclusion</h3>
+<p>Doing this is literally possible, but just barely. In this essay, I’ve
 set out some of the minimal groundwork required to even contemplate
 such a project: We need clarity on what this program does, why we want
 to change it, whether we can provide a compelling argument for the
 correctness of our changes and whether the bureaucratic context even
-allows us to.&lt;/p&gt;
+allows us to.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Doing this is literally possible, but just barely
-    &lt;a href=&quot;https://twitter.com/share?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-share-button&quot; data-text=&quot;&amp;ldquo;Doing this is literally possible, but just barely&amp;rdquo;&amp;#010;&amp;#010;&quot; data-via=&quot;mseebach&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Tweet&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Doing this is literally possible, but just barely
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="&ldquo;Doing this is literally possible, but just barely&rdquo;&#010;&#010;" data-via="mseebach" data-dnt="true" data-show-count="false">Tweet</a></p>
+</blockquote>
 
-&lt;p&gt;Good luck, you will need it.&lt;/p&gt;
+<p>Good luck, you will need it.</p>
 
-&lt;p&gt; &lt;/p&gt;
+<p> </p>
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/mseebach?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-follow-button&quot; data-size=&quot;large&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Follow @mseebach&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">A question Sabine Hossenfelder asked on Twitter prompted this essay:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" /><media:content medium="image" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Complexity as a virtue</title><link href="https://ma.rtinseeba.ch/complexity-as-virtue" rel="alternate" type="text/html" title="Complexity as a virtue" /><published>2020-07-25T00:00:00-05:00</published><updated>2020-07-25T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/complexity-as-virtue</id><content type="html" xml:base="https://ma.rtinseeba.ch/complexity-as-virtue">&lt;p&gt;&lt;em&gt;Or, How to make liberalism a personal value&lt;/em&gt;&lt;/p&gt;
+<p><a href="https://twitter.com/mseebach?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @mseebach</a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[How to convert millions of lines of code to a modern software project]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" /><media:content medium="image" url="https://ma.rtinseeba.ch/assets/vysoke_tatra_mountain_lake.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Complexity as a virtue</title><link href="https://ma.rtinseeba.ch/complexity-as-virtue" rel="alternate" type="text/html" title="Complexity as a virtue" /><published>2020-07-25T00:00:00+01:00</published><updated>2020-07-25T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/complexity-as-virtue</id><content type="html" xml:base="https://ma.rtinseeba.ch/complexity-as-virtue"><![CDATA[<p><em>Or, How to make liberalism a personal value</em></p>
 
-&lt;p&gt;What prompted this essay was my observations of how people reacted to government
+<p>What prompted this essay was my observations of how people reacted to government
 recommendations and guidelines on how to respond to the COVID-19 pandemic. A
 very substantial number of people seem to explicitly desire exact instructions
 from the government on how to go about their business and they despair when
-those instructions are even a little vague.&lt;/p&gt;
+those instructions are even a little vague.</p>
 
-&lt;p&gt;Liberalism is the name of a political ideology&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, which ultimately pertains to
+<p>Liberalism is the name of a political ideology<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, which ultimately pertains to
 the rights and duties of the state and formal power structure. But there is more
 to liberalism than political form. Liberalism relies on a personal, moral
 commitment. Without liberal people, wishing to live a liberal life, the liberal
-political project cannot succeed.&lt;/p&gt;
+political project cannot succeed.</p>
 
-&lt;p&gt;To me, it is self-evident that when a dangerous disease is circulating in the
+<p>To me, it is self-evident that when a dangerous disease is circulating in the
 population, everybody has a clear, personal duty to take every reasonable
 precaution to avoid contracting an infection and to avoid risking passing on
 infection. I admit to being slightly shocked at realising this is not broadly
 shared, and that large parts of the country could be confused by the change of
-the UK government slogan from “Stay home” to “Stay alert”.&lt;/p&gt;
+the UK government slogan from “Stay home” to “Stay alert”.</p>
 
-&lt;p&gt;I tweeted at the time:&lt;/p&gt;
+<p>I tweeted at the time:</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;&quot;Stay home&quot; is an extrinsic, hierarchical order. On the face of it,
+<blockquote>
+  <p>"Stay home" is an extrinsic, hierarchical order. On the face of it,
 easy to follow, but not really, as the myriad of exceptions show. Even the
 police took weeks to settle on mostly-non-enforcement as the only feasible
 implementation. 1/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458778707169280&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458778707169280">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;&quot;Stay alert&quot; on the other hand is intrinsic. As opposed to the
+<blockquote>
+  <p>"Stay alert" on the other hand is intrinsic. As opposed to the
 ostensibly simpler rule, this one literally has zero exceptions, but it's
 harder because we have to actually think for ourselves. 2/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458779822936064&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458779822936064">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;The baseline remains &quot;stay at home&quot;. But the exceptions are now
+<blockquote>
+  <p>The baseline remains "stay at home". But the exceptions are now
 devolved and no longer enumerated entitlements, individual decisions to be
 made by considering your specific context and situation and applying reason.
-3/ &lt;a href=&quot;https://twitter.com/mseebach/status/1259458781894914053&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+3/ <a href="https://twitter.com/mseebach/status/1259458781894914053">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Will it be abused? Sure, but so was the old rule. The difference is that it
+<blockquote>
+  <p>Will it be abused? Sure, but so was the old rule. The difference is that it
 gives licence to responsible, law-abiding citizen who have a reasonable
 errand, or even merely a desire they can fulfill responsibly. I.e what
 renegades were doing anyway. 4/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458783010533376&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458783010533376">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Hard, simple rules have a time and a place, in narrow, well-understood
+<blockquote>
+  <p>Hard, simple rules have a time and a place, in narrow, well-understood
 contexts. Like traffic. But this isn't it. 5/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458784201781249&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458784201781249">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;It's old news in the business world that intrinsic rules enable better
+<blockquote>
+  <p>It's old news in the business world that intrinsic rules enable better
 outcomes than extrinsic ones in complex scenarios: people closer to the
 situation has more context and when given freedom, rather than a strict
 command, make better decisions. 6/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458785153818624&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458785153818624">↪</a></p>
+</blockquote>
 
-&lt;blockquote&gt;
-  &lt;p&gt;The flip side of this is that it requires a particular culture, one that
+<blockquote>
+  <p>The flip side of this is that it requires a particular culture, one that
 values good outcomes over strict process, one that doesn't punish a failed
 good faith effort. The £1m question? Do we have that culture, do we want to
 have it, can we get it? 7/
-&lt;a href=&quot;https://twitter.com/mseebach/status/1259458786185678850&quot;&gt;↪&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<a href="https://twitter.com/mseebach/status/1259458786185678850">↪</a></p>
+</blockquote>
 
-&lt;h3 id=&quot;of-the-people-for-the-people&quot;&gt;Of the People, for the People&lt;/h3&gt;
+<h3 id="of-the-people-for-the-people">Of the People, for the People</h3>
 
-&lt;p&gt;Liberals will often worry about the effects of overbearing government policy on
+<p>Liberals will often worry about the effects of overbearing government policy on
 personal attitudes towards independent thought, responsibility, and duty, and
 rightly so. But one of the things that turned me off “hard” libertarianism is
 the overwhelming focus on government. I believe that as things stand today if we
@@ -315,27 +315,27 @@ didn’t have an overbearing state, the first thing people would do would be to
 invent one. It would be smaller at first, but it would grow quickly because
 there is a deep popular desire to make one’s problems someone else’s. It’s not so much
 “Rob Peter to pay Paul”, but rather “Rob Peter and Paul, and absolve them of their
-responsibilities in return”.&lt;/p&gt;
+responsibilities in return”.</p>
 
-&lt;p&gt;I am increasingly convinced that liberal progress does not start with fighting
-state power, but by figuring out how to make liberalism a personal, moral value.&lt;/p&gt;
+<p>I am increasingly convinced that liberal progress does not start with fighting
+state power, but by figuring out how to make liberalism a personal, moral value.</p>
 
-&lt;p&gt;The thicket of laws, regulations and agencies with vague missions and poor
+<p>The thicket of laws, regulations and agencies with vague missions and poor
 accountability is a product of culture, and lurking just under the surface, that
 culture is rooted in a specific demand for the eradication of ambiguity. The
 availability of detailed regulations for everything and nothing erodes personal
 agency, which further strengthens the demand. At this point, we are through so
-many iterations of this cycle that causality is meaningless.&lt;/p&gt;
+many iterations of this cycle that causality is meaningless.</p>
 
-&lt;p&gt;This is not solvable in the formal, political arena. It takes enormous amounts
+<p>This is not solvable in the formal, political arena. It takes enormous amounts
 of political capital to win even modest victories there, and
 the feedback to the cycle is weak, so the endeavour becomes Sisyphean. Rather,
 we need to encourage a sense of duty to engage directly with issues where they
-occur, and this requires being comfortable with complexity.&lt;/p&gt;
+occur, and this requires being comfortable with complexity.</p>
 
-&lt;h3 id=&quot;freedom-is-complexity&quot;&gt;Freedom is complexity&lt;/h3&gt;
+<h3 id="freedom-is-complexity">Freedom is complexity</h3>
 
-&lt;p&gt;Large government in otherwise free societies don’t generally discourage free
+<p>Large government in otherwise free societies don’t generally discourage free
 thought, as sometimes suggested by “hard” libertarians, as much as it
 discourages complex thought. People desire answers, and government is all too
 happy to grows in its attempts to provide them. The result is a society full of
@@ -343,9 +343,9 @@ answers, or at least the expectation of them. On COVID-19, the government fell
 short; there were no answers to give out. “Stay home” is a clear answer to a
 question, and this was correct for a while. “Stay alert” is not an answer, it’s
 a prompt to think complex thoughts, and the reaction to the latter betrays a
-negative reaction to complexity.&lt;/p&gt;
+negative reaction to complexity.</p>
 
-&lt;p&gt;42 is the answer to life, the universe and everything. The joke works because
+<p>42 is the answer to life, the universe and everything. The joke works because
 these things are obviously vastly complex, and it was folly to even expect an
 answer in the first place. This insight has profound impact on modern life that
 goes beyond a simple joke, but we seem blind to it. Stability and certainty as
@@ -353,9 +353,9 @@ societal terminal values are both deeply reactionary and unpractical: Government
 can no more provide and answer to everything than the computer in Hitchhiker’s
 Guide to the Galaxy could. Only liberalism provides moral clarity on this
 question; socialism and conservatism are united in the expectation that this is
-possible, only disagreeing on how to achieve it.&lt;/p&gt;
+possible, only disagreeing on how to achieve it.</p>
 
-&lt;p&gt;(End-note: I started drafting this post before the UK face covering mandate was
+<p>(End-note: I started drafting this post before the UK face covering mandate was
 announced. I have some aesthetic sympathy for the liberal knee-jerk of resiting
 being told what to wear and where by the government, and I would have had a
 strong preference for a bottom-up emergence of an expectation to wear masks in
@@ -363,58 +363,58 @@ shops and on public transportation in favour of a top-down mandate. That said, I
 consider resistance to this particular mandate a pointless waste of effort.
 Given where we are, as outlined and lamented in this post, it was probably
 necessary, and frankly as far as laws go, we can and are doing a lot worse than
-masks.)&lt;/p&gt;
+masks.)</p>
 
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;In this essay, “liberalism” is used in the European sense to mean “classical liberalism”, not to refer to the US political left. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Or, How to make liberalism a personal value</summary></entry><entry><title type="html">No-Code is dead, long live Max-code</title><link href="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code" rel="alternate" type="text/html" title="No-Code is dead, long live Max-code" /><published>2020-05-26T00:00:00-05:00</published><updated>2020-05-26T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code">&lt;blockquote&gt;
-  &lt;p&gt;A low-code development platform (LCDP) is software that provides a
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>In this essay, “liberalism” is used in the European sense to mean “classical liberalism”, not to refer to the US political left. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Or, How to make liberalism a personal value]]></summary></entry><entry><title type="html">No-Code is dead, long live Max-code</title><link href="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code" rel="alternate" type="text/html" title="No-Code is dead, long live Max-code" /><published>2020-05-26T00:00:00+01:00</published><updated>2020-05-26T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code</id><content type="html" xml:base="https://ma.rtinseeba.ch/no-code-is-dead-long-live-max-code"><![CDATA[<blockquote>
+  <p>A low-code development platform (LCDP) is software that provides a
 development environment used to create application software through
 graphical user interfaces and configuration instead of traditional
 hand-coded computer programming. A low-code model enables developers
 of varied experience levels to create applications using a visual
 user interface in combination with model-driven logic
-– &lt;a href=&quot;https://en.wikipedia.org/wiki/Low-code_development_platform&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+– <a href="https://en.wikipedia.org/wiki/Low-code_development_platform">Wikipedia</a></p>
+</blockquote>
 
-&lt;p&gt;The idea that Real Programming™ is hard, and that
+<p>The idea that Real Programming™ is hard, and that
 non-programmers should be exposed to it through carefully procured
 platforms and interfaces is almost as old as programming itself. COBOL, the
 great-grandmother of modern programming languages was conceived as
 such a system, the name short for ‘Common Business-Oriented
 Language’. While undoubtedly preferable over the alternative at the
 time, it did not quite manage to pry programming from the hands of the
-programmers.&lt;/p&gt;
+programmers.</p>
 
-&lt;p&gt;In the age of the mouse and the graphical user interface, the idea
+<p>In the age of the mouse and the graphical user interface, the idea
 took a new shape that it still broadly embodies: Dragging boxes
-around. I particularly recall the software that came with &lt;a href=&quot;https://en.wikipedia.org/wiki/Lego_Mindstorms&quot;&gt;LEGO
-Mindstorms&lt;/a&gt;, a
+around. I particularly recall the software that came with <a href="https://en.wikipedia.org/wiki/Lego_Mindstorms">LEGO
+Mindstorms</a>, a
 programmable controller for LEGO that enabled quite advanced
 robotics projects. Of course, kids can’t be trusted to operate
 keyboards, so the programming interface was a canvas where the user
 would drag and drop big, colourful blocks and snap them into each
 other. The total irony of the situation was that the blocks were
-literally &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt; and you had to plug conditions and actions
+literally <code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">for</code> and you had to plug conditions and actions
 into them. Of course, on the monitors of the late ’90s, you would run
 out of space pretty quickly as well, so anything more complicated than
 a switch turning something on and off would overflow the screen, and
 you’d have to scroll around, wreaking havoc to any notion of
 overview. Luckily, and to LEGOs credit, they allowed multiple
 programming environments, so I spend most of my time with Mindstorms
-in Visual Studio.&lt;/p&gt;
+in Visual Studio.</p>
 
-&lt;p&gt;Around the same time, XML entered the stage and was immediately
+<p>Around the same time, XML entered the stage and was immediately
 seized on by the no-code-crowd (who, of course, were not called that
 yet). Especially in enterprise Java land (from which I hail),
 everything was “configurable” in XML –
-&lt;a href=&quot;https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html&quot;&gt;Spring&lt;/a&gt;
+<a href="https://docs.spring.io/spring/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html">Spring</a>
 was the biggest elephant in that particular china-shop. A Spring XML
-configuration file would have you define &lt;em&gt;beans&lt;/em&gt; which are instances
+configuration file would have you define <em>beans</em> which are instances
 of classes, complete with passing arguments to the constructor in the
 form of other beans. This is infinitely flexible, and in theory sounds
 pretty good: You can write a program that interacts with eg. a
@@ -422,9 +422,9 @@ database, and when running it, your Spring XML would simply
 instantiate the particular driver appropriate for your database as a
 bean. Now the program can run anywhere without being modified, and
 without anticipating all the types of databases it might connect to –
-&lt;em&gt;without any programming required&lt;/em&gt;.&lt;/p&gt;
+<em>without any programming required</em>.</p>
 
-&lt;p&gt;Two things happened: (1) No non-engineer ever edited a Spring XML file
+<p>Two things happened: (1) No non-engineer ever edited a Spring XML file
 – the examples in the link above should make clear the reason for
 this: They are completely incomprehensible to anyone who doesn’t
 understand exactly what’s going on. (2) Programmers and architects
@@ -434,9 +434,9 @@ code, they’re lacking many of the features that would help us find out
 where a problem is, such as stack traces and debuggers, and the tools
 we would use to avoid the problem in the first place,
 like source control and testing. In XML’s defence, it must be said
-that this was never the intended role for XML.&lt;/p&gt;
+that this was never the intended role for XML.</p>
 
-&lt;p&gt;A pattern begins to emerge: These tools may remove &lt;em&gt;code&lt;/em&gt;, but they
+<p>A pattern begins to emerge: These tools may remove <em>code</em>, but they
 don’t remove complexity. Rather, in their attempt to make something
 fundamentally complex non-complex, they end up adding significant
 amounts of additional complexity instead. The dynamic is similar to
@@ -448,43 +448,43 @@ treat your no-code code as code, put it in SCM and write tests around
 it. But this, of course, robs no-code of it’s very essence. In the case
 of Spring, it is telling that XML configuration files are no longer
 the default – actual code is, and the result is often much, much
-cleaner, easier to work with and easier to test.&lt;/p&gt;
+cleaner, easier to work with and easier to test.</p>
 
-&lt;p&gt;No-code efforts can be understood in two very distinct categories:
+<p>No-code efforts can be understood in two very distinct categories:
 Those that understand their inherent complexity and those that
 don’t. If the complexity is low enough, it can be reduced to simple,
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Declarative_programming&quot;&gt;declarative&lt;/a&gt;
+<a href="https://en.wikipedia.org/wiki/Declarative_programming">declarative</a>
 configuration. Website creators like Wix are in this category –
 you can build a website using a well-built palette of the kinds of
 components users expect websites are made up off. But there are things
 you can’t do, and there is no way to work around it in a clever
-configuration editor. If you &lt;em&gt;can&lt;/em&gt;, it involves building a plugin
-using real programming, and there are no apologies made for that.&lt;/p&gt;
+configuration editor. If you <em>can</em>, it involves building a plugin
+using real programming, and there are no apologies made for that.</p>
 
-&lt;p&gt;In the other category, we find the fundamentally patronising idea that
+<p>In the other category, we find the fundamentally patronising idea that
 your users can handle infinite, Turing-complete complexity, but is
 unable to express this complexity
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Imperative_programming&quot;&gt;imperatively&lt;/a&gt; in text
+<a href="https://en.wikipedia.org/wiki/Imperative_programming">imperatively</a> in text
 and must have their hands tied by point-and-click interfaces and
 “configuration”. Some of them indeed can’t do this, but that won’t
-keep them from trying, and sometimes succeeding, which is terrifying.&lt;/p&gt;
+keep them from trying, and sometimes succeeding, which is terrifying.</p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/oak-tree-field-chilterns.jpg&quot; alt=&quot;Oak tree in field&quot; /&gt;&lt;/p&gt;
+<p><img src="/assets/oak-tree-field-chilterns.jpg" alt="Oak tree in field" /></p>
 
-&lt;p&gt;I don’t believe that the patronisation is necessary: While developers
+<p>I don’t believe that the patronisation is necessary: While developers
 and product managers fretted over how code would scare people, a
 plausible candidate for the most widely used programming language in
 the world evolved, hiding in plain sight: Excel. Millions of business
 users who had no idea they couldn’t code built software edifices of
 awe-inspiring complexity. In the same vein, complex SQL thousands of
 lines long are routinely written and edited by business analysts who are
-similarly certain that they can’t code.&lt;/p&gt;
+similarly certain that they can’t code.</p>
 
-&lt;p&gt;Of course, neither Excel or SQL is a particularly nice language, and
+<p>Of course, neither Excel or SQL is a particularly nice language, and
 leaving them for only the types of tasks they are designed for should
-be strongly encouraged.&lt;/p&gt;
+be strongly encouraged.</p>
 
-&lt;p&gt;Which brings me to the conclusion: No-code is a terrible
+<p>Which brings me to the conclusion: No-code is a terrible
 misunderstanding. Instead, the genuine low-code movement should join
 what we might call the max-code movement: modern high-level
 programming languages. Python, Ruby, possibly Kotlin (I’m certain
@@ -492,27 +492,27 @@ there are other worthy candidates for this list), combined with
 modern, wholesome software development practices, such as SCM, testing
 and CI. And of course packages and modules: Let the more technically
 confident users build components for other users to incorporate. The
-success of coding boot camps suggests this is an eminently viable path.&lt;/p&gt;
+success of coding boot camps suggests this is an eminently viable path.</p>
 
-&lt;p&gt;Instead of hiding from the complex reality, we must embrace it and
-unlock the amazing power of computing for all.&lt;/p&gt;
+<p>Instead of hiding from the complex reality, we must embrace it and
+unlock the amazing power of computing for all.</p>
 
-&lt;p&gt; &lt;/p&gt;
+<p> </p>
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/mseebach?ref_src=twsrc%5Etfw&quot; class=&quot;twitter-follow-button&quot; data-size=&quot;large&quot; data-dnt=&quot;true&quot; data-show-count=&quot;false&quot;&gt;Follow @mseebach&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">A low-code development platform (LCDP) is software that provides a development environment used to create application software through graphical user interfaces and configuration instead of traditional hand-coded computer programming. A low-code model enables developers of varied experience levels to create applications using a visual user interface in combination with model-driven logic – Wikipedia</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ma.rtinseeba.ch/assets/oak-tree-field-chilterns.jpg" /><media:content medium="image" url="https://ma.rtinseeba.ch/assets/oak-tree-field-chilterns.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">About that audition project</title><link href="https://ma.rtinseeba.ch/about-that-audition-project" rel="alternate" type="text/html" title="About that audition project" /><published>2013-10-03T00:00:00-05:00</published><updated>2013-10-03T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/about-that-audition-project</id><content type="html" xml:base="https://ma.rtinseeba.ch/about-that-audition-project">&lt;p&gt;The idea of an audition project comes up frequently in recommendations
-about hiring and interviewing, most recently in HackerEarth’s &lt;a href=&quot;http://recruiterguide.hackerearth.com/technical-interviews-whats-beyond-the-fizzbuzz-challenge/&quot;&gt;Technical Interviews: What’s beyond the Fizzbuzz challenge&lt;/a&gt;. 
+<p><a href="https://twitter.com/mseebach?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-dnt="true" data-show-count="false">Follow @mseebach</a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[No-code is a terrible misunderstanding. The idea that Real Programming&trade; is hard, and that non-programmers should be exposed to it through carefully procured platforms and interfaces is almost as old as programming itself]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ma.rtinseeba.ch/assets/oak-tree-field-chilterns.jpg" /><media:content medium="image" url="https://ma.rtinseeba.ch/assets/oak-tree-field-chilterns.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">About that audition project</title><link href="https://ma.rtinseeba.ch/about-that-audition-project" rel="alternate" type="text/html" title="About that audition project" /><published>2013-10-03T00:00:00+01:00</published><updated>2013-10-03T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/about-that-audition-project</id><content type="html" xml:base="https://ma.rtinseeba.ch/about-that-audition-project"><![CDATA[<p>The idea of an audition project comes up frequently in recommendations
+about hiring and interviewing, most recently in HackerEarth’s <a href="http://recruiterguide.hackerearth.com/technical-interviews-whats-beyond-the-fizzbuzz-challenge/">Technical Interviews: What’s beyond the Fizzbuzz challenge</a>. 
 I find points 1-4
 solid and insightful advice, but point 5 – the audition project –
-irks me.&lt;/p&gt;
+irks me.</p>
 
-&lt;p&gt;After clearing the hurdles of the interview itself, the candidate is
-to be given a small &lt;em&gt;real&lt;/em&gt; project to be completed in about a week or
+<p>After clearing the hurdles of the interview itself, the candidate is
+to be given a small <em>real</em> project to be completed in about a week or
 so. On the face of it, the idea has a lot going for it: Nobody
 disagrees that there are no better ways of evaluation a person’s skill
 than their actual performance on solving a real, relevant problem with
-the team. But I am rather bearish on the idea:&lt;/p&gt;
+the team. But I am rather bearish on the idea:</p>
 
-&lt;p&gt;First, I plainly don’t think it’s fair to request of a candidate to
+<p>First, I plainly don’t think it’s fair to request of a candidate to
 invest a whole week into a single application. If they are out of a
 job, it’s easier to achieve, but if the person you are hiring already
 has a job or is finishing up university, it gets tricky. Most people
@@ -522,192 +522,192 @@ You’re putting yourself in an increasingly exposed position, and
 keeping your interviewing secret from your current employer gets all
 but impossible. Also, I don’t think it’s unreasonable to interview to
 the final stage at two or more potential jobs before making a call. This
-practise will make that all but impossible to achieve.&lt;/p&gt;
+practise will make that all but impossible to achieve.</p>
 
-&lt;p&gt;Second, few teams have a cache of such problems.&lt;/p&gt;
+<p>Second, few teams have a cache of such problems.</p>
 
-&lt;p&gt;The problem must be well defined and documented and as good as free of
+<p>The problem must be well defined and documented and as good as free of
 proprietary dependencies -  if we are to get good signal from just a
 week’s effort, it can’t be spent on getting to know the intricacies of
-your existing codebase or understanding the problem to begin with.&lt;/p&gt;
+your existing codebase or understanding the problem to begin with.</p>
 
-&lt;p&gt;I mean ‘proprietary’ very broadly, not just that
+<p>I mean ‘proprietary’ very broadly, not just that
 very-closed-source homebaked collection of libraries and middleware
 that has grown organically for the past five years that you know you
 should get rid off anyway. I mean basically anything that assumes
 business or product knowledge beyond what a candidate can reasonably
 be expected to learn from your website. Unless your team is working on
 a quite popular open source project, that means pretty much all
-your code.&lt;/p&gt;
+your code.</p>
 
-&lt;p&gt;One of the reasons outsourcing is so difficult is that shared context
+<p>One of the reasons outsourcing is so difficult is that shared context
 is key to effective communication and understanding. The exact same
-constraint applies here.&lt;/p&gt;
+constraint applies here.</p>
 
-&lt;p&gt;Maybe I’m not thinking hard enough, but I struggle to think of even a
-few tasks that fit this bill from my last three jobs.&lt;/p&gt;
+<p>Maybe I’m not thinking hard enough, but I struggle to think of even a
+few tasks that fit this bill from my last three jobs.</p>
 
-&lt;p&gt;Finally, the real killer is the simple fact that the team needs to work
+<p>Finally, the real killer is the simple fact that the team needs to work
 with this person to evaluate them, and so the team needs to invest
 time, effort and emotion into getting to know this person, and suffer the
 morale impact of making the no-hire decision – to fire the
 person. After all, as a part of your hiring process, you’d want signal
 from it: A substantial portion of the candidates should fail at this
-stage.&lt;/p&gt;
+stage.</p>
 
-&lt;p&gt;We need to make the interview process better, but the audition project is not it.&lt;/p&gt;
+<p>We need to make the interview process better, but the audition project is not it.</p>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;Discussion welcome at &lt;a href=&quot;https://news.ycombinator.com/item?id=6492921&quot;&gt;Hacker News&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">The idea of an audition project comes up frequently in recommendations about hiring and interviewing, most recently in HackerEarth’s Technical Interviews: What’s beyond the Fizzbuzz challenge. I find points 1-4 solid and insightful advice, but point 5 – the audition project – irks me.</summary></entry><entry><title type="html">JAXB isn’t half bad</title><link href="https://ma.rtinseeba.ch/jaxb-isnt-half-bad" rel="alternate" type="text/html" title="JAXB isn’t half bad" /><published>2013-06-14T00:00:00-05:00</published><updated>2013-06-14T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</id><content type="html" xml:base="https://ma.rtinseeba.ch/jaxb-isnt-half-bad">&lt;p&gt;This week I had to implement a small Java program that would provide a
+<p>Discussion welcome at <a href="https://news.ycombinator.com/item?id=6492921">Hacker News</a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[The idea of an audition project comes up frequently in recommendations about hiring and interviewing, most recently in HackerEarth’s Technical Interviews: What’s beyond the Fizzbuzz challenge. I find points 1-4 solid and insightful advice, but point 5 – the audition project – irks me.]]></summary></entry><entry><title type="html">JAXB isn’t half bad</title><link href="https://ma.rtinseeba.ch/jaxb-isnt-half-bad" rel="alternate" type="text/html" title="JAXB isn’t half bad" /><published>2013-06-14T00:00:00+01:00</published><updated>2013-06-14T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/jaxb-isnt-half-bad</id><content type="html" xml:base="https://ma.rtinseeba.ch/jaxb-isnt-half-bad"><![CDATA[<p>This week I had to implement a small Java program that would provide a
 UI to manipulate an XML file. My heart sank a bit at the promise of a
-trip to the Java/XML enterprise heartland.&lt;/p&gt;
+trip to the Java/XML enterprise heartland.</p>
 
-&lt;p&gt;My original plan was to just implement a minimal, viable subset of the
+<p>My original plan was to just implement a minimal, viable subset of the
 XML as a proof of concept – and since this is, it self, for a proof
 of concept, I might well have gotten away with it. But still, anything
 that worth doing is worth doing well, so I did some research (which is
 a nice way of saying that I dithered for a while, trying to make up my
 mind) and happened to notice that
-&lt;a href=&quot;https://jaxb.java.net/tutorial/section_1_3-Hello-World.html&quot;&gt;JAXB&lt;/a&gt;
-was already on the classpath of the project.&lt;/p&gt;
+<a href="https://jaxb.java.net/tutorial/section_1_3-Hello-World.html">JAXB</a>
+was already on the classpath of the project.</p>
 
-&lt;p&gt;JAXB – Java Architecture for XML Binding – works by taking a XSD
+<p>JAXB – Java Architecture for XML Binding – works by taking a XSD
 schema and generating bindings for it. I recalled the similar approach
 used in JAX-WS and cringed, but resolved to give it a shot. I have
 some previous experience building XSDs and find it a reasonably sane
 and helpful exercise: it forces you to consider your XML format
 separately. It has some counter-intuitive constraints (an element
 can’t contain a mix of element types and children in any order, they
-must come in a certain order) but nothing too outrageous.&lt;/p&gt;
+must come in a certain order) but nothing too outrageous.</p>
 
-&lt;p&gt;Having build the XSD, I fed it to the ‘xjc’ command line util,
+<p>Having build the XSD, I fed it to the ‘xjc’ command line util,
 helpfully included in the JDK, and got a nicely generated set of
 classes with binding to my XML format. The link above is to a “Hello
 World” sample, and I don’t think I can improve much on that – thus,
-no sample code in this post.&lt;/p&gt;
+no sample code in this post.</p>
 
-&lt;p&gt;It worked almost as expected –
+<p>It worked almost as expected –
 after battling a bit with the interface to the JAXB unmarshaller, I
 discovered that about half the problems I was facing was due to my XSD
 not defining a root element. This has the effect of declaring a
 universe in which the element can exist, not telling JAXB explicitly
-to expect a certain element in my XML file.&lt;/p&gt;
+to expect a certain element in my XML file.</p>
 
-&lt;p&gt;With that fixed, I had a nice and clean typesafe interface to my XML
+<p>With that fixed, I had a nice and clean typesafe interface to my XML
 format that turned out to work exactly as expected. Dynamic languages
 have a lot going for them in this domain, but I really like that I
 have autocompletion directly into my XML format and if I change the
 format, I can re-generate the bindings and get a nice list of compiler
-errors to work from.&lt;/p&gt;</content><author><name></name></author><summary type="html">This week I had to implement a small Java program that would provide a UI to manipulate an XML file. My heart sank a bit at the promise of a trip to the Java/XML enterprise heartland.</summary></entry><entry><title type="html">Double considered harmful</title><link href="https://ma.rtinseeba.ch/double-considered-harmful" rel="alternate" type="text/html" title="Double considered harmful" /><published>2010-10-18T00:00:00-05:00</published><updated>2010-10-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/double-considered-harmful</id><content type="html" xml:base="https://ma.rtinseeba.ch/double-considered-harmful">&lt;p&gt;_ or: How the number 1.2 cramped my style.._&lt;/p&gt;
+errors to work from.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[This week I had to implement a small Java program that would provide a UI to manipulate an XML file. My heart sank a bit at the promise of a trip to the Java/XML enterprise heartland.]]></summary></entry><entry><title type="html">Double considered harmful</title><link href="https://ma.rtinseeba.ch/double-considered-harmful" rel="alternate" type="text/html" title="Double considered harmful" /><published>2010-10-18T00:00:00+01:00</published><updated>2010-10-18T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/double-considered-harmful</id><content type="html" xml:base="https://ma.rtinseeba.ch/double-considered-harmful"><![CDATA[<p>_ or: How the number 1.2 cramped my style.._</p>
 
-&lt;p&gt;So, everybody who paid attention in college CS knows this. Heck, I didn’t always pay attention, and I knew it, but it still caught me by surprise when I hit my head on this issue in the real world.&lt;/p&gt;
+<p>So, everybody who paid attention in college CS knows this. Heck, I didn’t always pay attention, and I knew it, but it still caught me by surprise when I hit my head on this issue in the real world.</p>
 
-&lt;p&gt;Recapping the background: The double (as we know it in Java) is short for “double precision binary floating-point format”, and they are the floats more precise big brother. Floats and doubles are a trade-offs where precision is traded for the ability to store them in a fixed amount of space and to perform very fast arithmetic on them. Basically it’s two seperate numbers, called a significant and an exponent, and they are then subjected to some mathemagic to yield any of a very wide range of numbers. &lt;/p&gt;
+<p>Recapping the background: The double (as we know it in Java) is short for “double precision binary floating-point format”, and they are the floats more precise big brother. Floats and doubles are a trade-offs where precision is traded for the ability to store them in a fixed amount of space and to perform very fast arithmetic on them. Basically it’s two seperate numbers, called a significant and an exponent, and they are then subjected to some mathemagic to yield any of a very wide range of numbers. </p>
 
-&lt;p&gt;If you don’t need the floating point, which most people often don’t, you’re better off storing your numbers as fixed-point (e.g. the DECIMAL columntype in most databases). Unfortunately Java (and many other not-so-modern languages) doesn’t have such a type natively.&lt;/p&gt;
+<p>If you don’t need the floating point, which most people often don’t, you’re better off storing your numbers as fixed-point (e.g. the DECIMAL columntype in most databases). Unfortunately Java (and many other not-so-modern languages) doesn’t have such a type natively.</p>
 
-&lt;p&gt;So doubles aren’t perfectly precise, we know that, but that’s only for large and weird numbers, right? No. For one, a double can’t be 1.2. You wouldn’t know that if you didn’t look for it, because when you print doubles, Java rounds them off for you. And rightly so, the error is exceedingly small: had this been 1.2 meters, the error would amount to a fraction of the size of an atom. Obviously, this is perfectly fine - right up until the point when it’s not.&lt;/p&gt;
+<p>So doubles aren’t perfectly precise, we know that, but that’s only for large and weird numbers, right? No. For one, a double can’t be 1.2. You wouldn’t know that if you didn’t look for it, because when you print doubles, Java rounds them off for you. And rightly so, the error is exceedingly small: had this been 1.2 meters, the error would amount to a fraction of the size of an atom. Obviously, this is perfectly fine - right up until the point when it’s not.</p>
 
-&lt;p&gt;Our application dabbles quite a bit in arbitrary precision. We (among other things) deal in sequences of daily return ratios and foreign exchange - numbers that are notoriously unwilling to just be nice and round. By the time we get around to adding up your daily FX-adjusted returns for the past year, the error on a simple double-value starts to add up to real money, so we implement these numbers as BigDecimals (specifically our own wrapper for it that adds some useful fuctionality, including the ability to do fractions).&lt;/p&gt;
+<p>Our application dabbles quite a bit in arbitrary precision. We (among other things) deal in sequences of daily return ratios and foreign exchange - numbers that are notoriously unwilling to just be nice and round. By the time we get around to adding up your daily FX-adjusted returns for the past year, the error on a simple double-value starts to add up to real money, so we implement these numbers as BigDecimals (specifically our own wrapper for it that adds some useful fuctionality, including the ability to do fractions).</p>
 
-&lt;p&gt;This is all very well - until someone decides to stick something like 1.2 into BigDecimal. Recalling how printing 1.2 is fine, you’d be excused in assuming that using the double-constructor of BigDecimal is fine. But no, and with potentially disastrous consequences.&lt;/p&gt;
+<p>This is all very well - until someone decides to stick something like 1.2 into BigDecimal. Recalling how printing 1.2 is fine, you’d be excused in assuming that using the double-constructor of BigDecimal is fine. But no, and with potentially disastrous consequences.</p>
 
-&lt;p&gt;Consider this simple method:&lt;/p&gt;
+<p>Consider this simple method:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; 
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iterate_multiplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-                                   &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iterations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiplicand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bd_out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ONE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iterations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; 
-                  &lt;span class=&quot;n&quot;&gt;bd_out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bd_out&lt;/span&gt;
-                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ONE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;multiplicand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bd_out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> 
+<span class="kd">public</span> <span class="nc">BigDecimal</span> <span class="nf">iterate_multiplication</span><span class="o">(</span>
+                                   <span class="kt">int</span> <span class="n">iterations</span><span class="o">,</span>
+                                   <span class="nc">BigDecimal</span> <span class="n">multiplicand</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">BigDecimal</span> <span class="n">bd_out</span> <span class="o">=</span> <span class="nc">BigDecimal</span><span class="o">.</span><span class="na">ONE</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">iterations</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> 
+                  <span class="n">bd_out</span> <span class="o">=</span> <span class="n">bd_out</span>
+                           <span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="nc">BigDecimal</span><span class="o">.</span><span class="na">ONE</span><span class="o">)</span>
+                           <span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">multiplicand</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">bd_out</span><span class="o">;</span>
+    <span class="o">}</span></code></pre></figure>
 
-&lt;p&gt;And these two invocations – on the surface they are equivalent:&lt;/p&gt;
+<p>And these two invocations – on the surface they are equivalent:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt; 
-&lt;span class=&quot;n&quot;&gt;iterate_multiplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;iterate_multiplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BigDecimal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-java" data-lang="java"> 
+<span class="n">iterate_multiplication</span><span class="o">(</span><span class="mi">1000</span><span class="o">,</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="mf">1.2</span><span class="o">));</span>
+<span class="n">iterate_multiplication</span><span class="o">(</span><span class="mi">1000</span><span class="o">,</span> <span class="k">new</span> <span class="nc">BigDecimal</span><span class="o">(</span><span class="s">"1.2"</span><span class="o">));</span></code></pre></figure>
 
-&lt;p&gt;(BigDecimal will parse a decimal number from a string - IMHO the easiest way to get an exact value into a BigDecimal)&lt;/p&gt;
+<p>(BigDecimal will parse a decimal number from a string - IMHO the easiest way to get an exact value into a BigDecimal)</p>
 
-&lt;p&gt;The latter invocation returns well over 1000 times faster. Three full orders of magnitude. 15 milliseconds in place of 20 seconds. This is because the former is called with an argument that, behind the scene, has 51 decimal places, which, obviously, is significantly more complicated to multiply.&lt;/p&gt;
+<p>The latter invocation returns well over 1000 times faster. Three full orders of magnitude. 15 milliseconds in place of 20 seconds. This is because the former is called with an argument that, behind the scene, has 51 decimal places, which, obviously, is significantly more complicated to multiply.</p>
 
-&lt;p&gt;The two methods returns rather different numbers, but that is due to iterating the multiplication, which amplifies the error of the double. Both numbers have 81 digits before the decimal point, and share the first 13. The really interesting - but at this point, hardly surprising - difference is after the decimal point: The former has 52,000 decimals, the latter just 1,000.&lt;/p&gt;
+<p>The two methods returns rather different numbers, but that is due to iterating the multiplication, which amplifies the error of the double. Both numbers have 81 digits before the decimal point, and share the first 13. The really interesting - but at this point, hardly surprising - difference is after the decimal point: The former has 52,000 decimals, the latter just 1,000.</p>
 
-&lt;p&gt;Even though fortune-cookie conclusions are often over-generalizing, I will venture into that territory: Don’t ever construct a BigDecimal with a double. It doesn’t do what you think it does.&lt;/p&gt;
+<p>Even though fortune-cookie conclusions are often over-generalizing, I will venture into that territory: Don’t ever construct a BigDecimal with a double. It doesn’t do what you think it does.</p>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;Written for &amp;amp; posted on &lt;a href=&quot;https://devblog.timgroup.com/2010/10/18/double_considered_harmful/&quot;&gt;the TIM Group blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">_ or: How the number 1.2 cramped my style.._</summary></entry><entry><title type="html">Beautiful doesn’t make it true</title><link href="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true" rel="alternate" type="text/html" title="Beautiful doesn’t make it true" /><published>2010-04-18T00:00:00-05:00</published><updated>2010-04-18T00:00:00-05:00</updated><id>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</id><content type="html" xml:base="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true">&lt;p&gt;Yesterday, &lt;a href=&quot;http://twitter.com/christianevejlo&quot;&gt;@christianevejlo&lt;/a&gt; tweeted interest in whether
-volcano-grounded planes were &lt;a href=&quot;http://twitter.com/christianevejlo/status/12346732175&quot;&gt;a net benefit for the
-environment&lt;/a&gt;. Retweeting an answer, &lt;a href=&quot;http://twitter.com/christianevejlo/status/12355468953&quot;&gt;she referenced&lt;/a&gt;
-&lt;em&gt;Information is Beautiful&lt;/em&gt;’s post &lt;a href=&quot;http://www.informationisbeautiful.net/2010/planes-or-volcano/&quot;&gt;“Planes or Volcano”&lt;/a&gt;, an indeed
+<p>Written for &amp; posted on <a href="https://devblog.timgroup.com/2010/10/18/double_considered_harmful/">the TIM Group blog</a>.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[_ or: How the number 1.2 cramped my style.._]]></summary></entry><entry><title type="html">Beautiful doesn’t make it true</title><link href="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true" rel="alternate" type="text/html" title="Beautiful doesn’t make it true" /><published>2010-04-18T00:00:00+01:00</published><updated>2010-04-18T00:00:00+01:00</updated><id>https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true</id><content type="html" xml:base="https://ma.rtinseeba.ch/beautiful-doesnt-make-it-true"><![CDATA[<p>Yesterday, <a href="http://twitter.com/christianevejlo">@christianevejlo</a> tweeted interest in whether
+volcano-grounded planes were <a href="http://twitter.com/christianevejlo/status/12346732175">a net benefit for the
+environment</a>. Retweeting an answer, <a href="http://twitter.com/christianevejlo/status/12355468953">she referenced</a>
+<em>Information is Beautiful</em>’s post <a href="http://www.informationisbeautiful.net/2010/planes-or-volcano/">“Planes or Volcano”</a>, an indeed
 aesthetically pleasing illustration of the CO2 emissions of the
 European aviation industry next to that of the Icelandic volcano. I
-replied that &lt;a href=&quot;http://twitter.com/mseebach/status/12356337232 (&amp;quot;Information is beautiful seems to be more about beautiful than about information..&amp;quot;)&quot;&gt;“Information is beautiful seems to be more about
-beautiful than about information..”&lt;/a&gt;. She asked me to elaborate,
-and here goes..&lt;/p&gt;
+replied that <a href="http://twitter.com/mseebach/status/12356337232 (&quot;Information is beautiful seems to be more about beautiful than about information..&quot;)">“Information is beautiful seems to be more about
+beautiful than about information..”</a>. She asked me to elaborate,
+and here goes..</p>
 
-&lt;p&gt;Infographics seems to have had a renaissance recently. There is a lot
+<p>Infographics seems to have had a renaissance recently. There is a lot
 of information out there, and visualizing it in various ways helps
 convey this information to a much larger audience. This is a good
-thing. &lt;em&gt;&lt;a href=&quot;http://www.informationisbeautiful.net/&quot;&gt;Information is Beautiful&lt;/a&gt;&lt;/em&gt; is part of this, and they have
-some &lt;a href=&quot;http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/&quot;&gt;truly&lt;/a&gt; &lt;a href=&quot;http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/&quot;&gt;stunning&lt;/a&gt; &lt;a href=&quot;http://www.informationisbeautiful.net/2010/four-infographical-morsels-no-5/&quot;&gt;work&lt;/a&gt;. However, in this case, what
+thing. <em><a href="http://www.informationisbeautiful.net/">Information is Beautiful</a></em> is part of this, and they have
+some <a href="http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/">truly</a> <a href="http://www.informationisbeautiful.net/2010/who-really-spends-the-most-on-their-military/">stunning</a> <a href="http://www.informationisbeautiful.net/2010/four-infographical-morsels-no-5/">work</a>. However, in this case, what
 was conveyed wasn’t data. It was the point that commercial aviation is
 evil bad for the environment. The way I can tell is the way they
 casually observe that Eyjafjallajökull belches out 3000 tons of
 Sulphur Dioxide (SO2) daily, while they have no interest in this
 beyond using it as a stepping stone to estimate the amount of Carbon
-Dioxide (CO2) emitted.&lt;/p&gt;
+Dioxide (CO2) emitted.</p>
 
-&lt;p&gt;CO2 is a greenhouse gas that may very well have some very negative
-effects, but they lay decades in the future.&lt;/p&gt;
+<p>CO2 is a greenhouse gas that may very well have some very negative
+effects, but they lay decades in the future.</p>
 
-&lt;p&gt;SO2 is what causes acid rain.&lt;/p&gt;
+<p>SO2 is what causes acid rain.</p>
 
-&lt;p&gt;Planes emit CO2 - but they emit almost completely clean CO2 (note that
+<p>Planes emit CO2 - but they emit almost completely clean CO2 (note that
 bar global warming, CO2 isn’t considered harmful). Volcanoes blast
 tons and tons of all kinds of nasty and not so nasty stuff into the
 air. Some of the ash contains nutrients that will fertilize soil,
 other will, as mentioned, cause acid rain. It’s much more complex than
-CO2.&lt;/p&gt;
+CO2.</p>
 
-&lt;p&gt;&lt;em&gt;Information is Beautiful&lt;/em&gt; could have chosen to diagram the amount of
+<p><em>Information is Beautiful</em> could have chosen to diagram the amount of
 SO2 emitted by aviation (next to nothing) next to the amount emitted
 by the volcano (a lot), but they didn’t — and that’s OK, because it
-wouldn’t make sense.&lt;/p&gt;
+wouldn’t make sense.</p>
 
-&lt;p&gt;The point is that a volcano compared to commercial aviation is apples
+<p>The point is that a volcano compared to commercial aviation is apples
 to oranges. No matter how beautiful the infographics, it’s comparison
-in itself is pointless.&lt;/p&gt;
+in itself is pointless.</p>
 
-&lt;p&gt;Now, the general statement that &lt;em&gt;Information is Beautiful&lt;/em&gt; is more
-about beautiful stems from their previous post — “&lt;a href=&quot;http://www.informationisbeautiful.net/2010/how-much-do-music-artists-earn-online/&quot;&gt;How much do music
-artists earn online?&lt;/a&gt;”. Looking at this, again, very good looking
+<p>Now, the general statement that <em>Information is Beautiful</em> is more
+about beautiful stems from their previous post — “<a href="http://www.informationisbeautiful.net/2010/how-much-do-music-artists-earn-online/">How much do music
+artists earn online?</a>”. Looking at this, again, very good looking
 illustration, it’s easy to scroll down and say “boo, evil
 Spotify”. But until you look at the numbers (which, in infographics,
-is sort-of the point &lt;em&gt;not&lt;/em&gt; to), you don’t realize that it compares
-apples to oranges.&lt;/p&gt;
+is sort-of the point <em>not</em> to), you don’t realize that it compares
+apples to oranges.</p>
 
-&lt;p&gt;They equate selling &lt;em&gt;one physical CD&lt;/em&gt; with selling &lt;em&gt;one album
-download&lt;/em&gt; with selling &lt;em&gt;one track download&lt;/em&gt; with &lt;em&gt;getting one play&lt;/em&gt; on
+<p>They equate selling <em>one physical CD</em> with selling <em>one album
+download</em> with selling <em>one track download</em> with <em>getting one play</em> on
 a service like Spotify. Or the short version: for this graphic to
 convey an honest version of the truth, you have to accept the premise
-that &lt;em&gt;selling a physical CD and getting a play on Spotify is the
-same&lt;/em&gt;.&lt;/p&gt;
+that <em>selling a physical CD and getting a play on Spotify is the
+same</em>.</p>
 
-&lt;p&gt;First, one album download should equate ten, not one, track
+<p>First, one album download should equate ten, not one, track
 downloads. And getting a play should acknowledge that a play has zero
 marginal cost to the user, and that the user may choose to play a
 track many times. Once you’ve purchased and downloaded a track, you’ve
-got unlimited plays, forever.&lt;/p&gt;
+got unlimited plays, forever.</p>
 
-&lt;p&gt;If you accept ten tracks to an album, and ten plays pr. track, the
+<p>If you accept ten tracks to an album, and ten plays pr. track, the
 three bottom circles should be 100 times smaller (and the circles
 relating to single track downloads, 10 times smaller). That would make
 Rhapsody only twice the low-end retail deal. Considering that
@@ -717,18 +717,18 @@ cheap end, but only 11 times the low-end retail deal. Considering the
 enormous long-tail opportunities that the Spotify-like services
 provide (would you buy, say, Rick Astley’s “Never gonna let you down”?
 Probably not. Would you play it on Spotify at a party once or twice?
-That’s more likely), the number 11 shrinks even more.&lt;/p&gt;
+That’s more likely), the number 11 shrinks even more.</p>
 
-&lt;p&gt;And what is probably the worst offense: why doesn’t it compare a
+<p>And what is probably the worst offense: why doesn’t it compare a
 Spotify play with a radio-play? These services are essentially
-single-listener-market radio stations.&lt;/p&gt;
+single-listener-market radio stations.</p>
 
-&lt;p&gt;Again, the agenda is clear. It’s not about the data, it’s about
-calling Spotify evil. The data &lt;em&gt;may&lt;/em&gt; support that conclusion. The
-graphics doesn’t.&lt;/p&gt;
+<p>Again, the agenda is clear. It’s not about the data, it’s about
+calling Spotify evil. The data <em>may</em> support that conclusion. The
+graphics doesn’t.</p>
 
-&lt;p&gt;Finally, if you want more, please take a look at the &lt;a href=&quot;http://informationisbeautiful.bigcartel.com/&quot;&gt;limited edition
-posters being sold in the right-hand column&lt;/a&gt;. Nominally, it’s an
+<p>Finally, if you want more, please take a look at the <a href="http://informationisbeautiful.bigcartel.com/">limited edition
+posters being sold in the right-hand column</a>. Nominally, it’s an
 illustration comparing the political left with the political
 right. Read closer. The right is said to be “exclusive”, the left
 “inclusive”. The left-wing parent is “nurturing” and has a
@@ -736,12 +736,12 @@ relationship with her child that is build on “respect and trust”,
 while the right-wing parent is “strict” (as opposed to nurturing) and
 the relationship is build on “respect and fear”. “Survival of the
 fittest” is repeated twice on the right side, the left has “One for
-all and all for one”.&lt;/p&gt;
+all and all for one”.</p>
 
-&lt;p&gt;I have no doubt that this is how the urban, american left views
+<p>I have no doubt that this is how the urban, american left views
 itself, I know I’m probably guilty of similar prejudices the other way
 around. But if it’s an infographic, it’s about american left-wing
-prejudices, not about political philosophies.&lt;/p&gt;
+prejudices, not about political philosophies.</p>
 
-&lt;p&gt;In conclusion: Information is Beautiful makes beautiful things. For
-information, they are little better than any political blog.&lt;/p&gt;</content><author><name></name></author><summary type="html">Yesterday, @christianevejlo tweeted interest in whether volcano-grounded planes were a net benefit for the environment. Retweeting an answer, she referenced Information is Beautiful’s post “Planes or Volcano”, an indeed aesthetically pleasing illustration of the CO2 emissions of the European aviation industry next to that of the Icelandic volcano. I replied that “Information is beautiful seems to be more about beautiful than about information..”. She asked me to elaborate, and here goes..</summary></entry></feed>
+<p>In conclusion: Information is Beautiful makes beautiful things. For
+information, they are little better than any political blog.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Yesterday, @christianevejlo tweeted interest in whether volcano-grounded planes were a net benefit for the environment. Retweeting an answer, she referenced Information is Beautiful’s post “Planes or Volcano”, an indeed aesthetically pleasing illustration of the CO2 emissions of the European aviation industry next to that of the Icelandic volcano. I replied that “Information is beautiful seems to be more about beautiful than about information..”. She asked me to elaborate, and here goes..]]></summary></entry></feed>

@@ -37,6 +37,8 @@ exclude:
   - docker.sh
   - Gemfile
   - Gemfile.lock
+  - jekyll-serve.sh
+  - jekyll-build.sh
 #   - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
